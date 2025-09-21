@@ -1,21 +1,72 @@
 @import "tailwindcss";
 
 :root {
+  /* Base */
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Brand */
+  --brand-yellow: #ffd23f;
+  --brand-green: #2c7a3f;
+  --brand-black: #171717;
+  --brand-grey: #4b4b4b;
+
+  /* UI / neutrals */
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+
+  /* Borders & inputs */
+  --border: #e5e5e5;
+
+  /* Call-to-action (primary buttons etc.) */
+  --primary: var(--brand-yellow);
+  --primary-foreground: #171717;
+
+  /* Secondary (for outlines, subtle buttons) */
+  --secondary: var(--brand-green);
+  --secondary-foreground: #ffffff;
+
+  /* Error / alerts (optional, for forms/checkout) */
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
+/* Dark mode adjustments */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+
+    --muted: #1f1f1f;
+    --muted-foreground: #a3a3a3;
+
+    --border: #2a2a2a;
+
+    --primary-foreground: #171717; /* keep contrast */
+    --secondary: #3ba94d; /* slightly brighter green for dark mode */
   }
 }
 
@@ -24,3 +75,8 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* if you haven't added yet */
+.btn { @apply inline-flex items-center justify-center rounded-lg px-5 py-2.5 font-medium transition; }
+.btn-primary { @apply bg-primary text-primary-foreground hover:opacity-90; }
+.btn-secondary { @apply bg-secondary text-secondary-foreground hover:opacity-90; }
