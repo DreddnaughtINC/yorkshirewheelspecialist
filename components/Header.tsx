@@ -46,10 +46,10 @@ const Header = () => {
             <nav className="hidden lg:flex items-center space-x-8">
               <a href="/" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Home</a>
               <a href="/services" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Services</a>
-              <a href="#shop" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Shop</a>
-              <a href="#gallery" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Gallery</a>
-              <a href="#about" className="text-gray-700 hover:text-green-600 font-medium transition-colors">About</a>
-              <a href="#contact" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Contact</a>
+              <a href="/shop" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Shop</a>
+              <a href="/gallery" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Gallery</a>
+              <a href="/about" className="text-gray-700 hover:text-green-600 font-medium transition-colors">About</a>
+              <a href="/contact" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Contact</a>
             </nav>
 
             {/* CTA Buttons */}
@@ -75,12 +75,12 @@ const Header = () => {
           {isMenuOpen && (
             <div className="lg:hidden py-4 border-t">
               <nav className="flex flex-col space-y-4">
-                <a href="#home" className="text-gray-700 hover:text-green-600 font-medium">Home</a>
-                <a href="#services" className="text-gray-700 hover:text-green-600 font-medium">Services</a>
-                <a href="#shop" className="text-gray-700 hover:text-green-600 font-medium">Shop</a>
-                <a href="#gallery" className="text-gray-700 hover:text-green-600 font-medium">Gallery</a>
-                <a href="#about" className="text-gray-700 hover:text-green-600 font-medium">About</a>
-                <a href="#contact" className="text-gray-700 hover:text-green-600 font-medium">Contact</a>
+                <a href="/" className="text-gray-700 hover:text-green-600 font-medium">Home</a>
+                <a href="/services" className="text-gray-700 hover:text-green-600 font-medium">Services</a>
+                <a href="/shop" className="text-gray-700 hover:text-green-600 font-medium">Shop</a>
+                <a href="/gallery" className="text-gray-700 hover:text-green-600 font-medium">Gallery</a>
+                <a href="/about" className="text-gray-700 hover:text-green-600 font-medium">About</a>
+                <a href="/contact" className="text-gray-700 hover:text-green-600 font-medium">Contact</a>
                 <div className="flex flex-col space-y-2 pt-4">
                   <button className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium">Get Quote</button>
                   <button className="border-2 border-yellow-400 text-yellow-600 px-6 py-2 rounded-lg font-medium">Book Mobile</button>
