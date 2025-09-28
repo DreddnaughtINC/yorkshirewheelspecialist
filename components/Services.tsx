@@ -64,9 +64,9 @@ const ServiceCard = ({ service }: { service: Service }) => (
         ))}
       </ul>
       <div className="mt-auto flex items-center gap-3">
-        <a href="#quote" className="btn btn-primary">Get a Quote</a>
+        <a href="/services" className="btn btn-primary">Get a Quote</a>
         <a
-          href={`/gallery?service=${encodeURIComponent(service.title)}`}
+          href={`/gallery`}
           className="text-sm font-medium hover:opacity-90 underline underline-offset-4"
         >
           View examples →

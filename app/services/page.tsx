@@ -35,7 +35,7 @@ const DetailedServices = () => {
       title: "Powder Coating",
       subtitle: "Factory-Grade Finish",
       description: "Our powder coating service provides a durable, long-lasting finish that's superior to traditional paint. Using electrostatic application and oven-curing at 200°C, we achieve a flawless, chip-resistant coating.",
-      image: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/services/ChatGPT Image Aug 26, 2025, 09_16_15 PM.png",
       priceFrom: 85,
       duration: "3-5 days",
       warranty: "2 years",
@@ -64,7 +64,7 @@ const DetailedServices = () => {
       title: "Diamond Cut Repairs",
       subtitle: "CNC Precision Machining",
       description: "Restore the crisp, mirror-like finish of diamond cut wheels using our state-of-the-art CNC lathe. We recreate the original factory specification with precision machining.",
-      image: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/services/car-wheel-with-new-tires-close-up.jpg",
       priceFrom: 95,
       duration: "4-6 days",
       warranty: "18 months",
@@ -92,7 +92,7 @@ const DetailedServices = () => {
       title: "Buckled & Cracked Repairs",
       subtitle: "Structural Restoration",
       description: "Professional repair of buckled rims and crack welding using specialized equipment. All repairs are pressure tested and balanced to ensure safety and performance.",
-      image: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/services/welding-8445458_1280.jpg",
       priceFrom: 75,
       duration: "2-4 days",
       warranty: "12 months",
@@ -120,7 +120,7 @@ const DetailedServices = () => {
       title: "Split Rim Refurbishment",
       subtitle: "Multi-Piece Wheel Specialists",
       description: "Complete refurbishment of split rim wheels including disassembly, individual component restoration, new hardware, and professional reassembly with correct torque specifications.",
-      image: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/services/2148194142.jpg",
       priceFrom: 150,
       duration: "5-7 days",
       warranty: "2 years",
@@ -148,7 +148,7 @@ const DetailedServices = () => {
       title: "SMART Repairs",
       subtitle: "Quick Cosmetic Fixes",
       description: "Small to Medium Area Repair Technology for minor scuffs, scratches, and kerb damage. Cost-effective solution that maintains wheel integrity while improving appearance.",
-      image: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/services/man-fixing-wheel-bolts.jpg",
       priceFrom: 45,
       duration: "Same day",
       warranty: "6 months",
@@ -176,7 +176,7 @@ const DetailedServices = () => {
       title: "Kerb & Corrosion Repair",
       subtitle: "Complete Restoration",
       description: "Comprehensive repair service for kerb damage and corrosion issues. We restore wheels to original condition using professional techniques and premium materials.",
-      image: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image: "/images/services/ChatGPT Image Aug 26, 2025, 09_26_08 PM.png",
       priceFrom: 65,
       duration: "3-4 days",
       warranty: "18 months",
@@ -207,7 +207,7 @@ const DetailedServices = () => {
       description: "We come to you across Yorkshire with our fully equipped mobile workshop",
       features: ["On-site repairs", "Yorkshire-wide coverage", "Flexible scheduling"],
       callout: "Available 6 days a week",
-      image: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: "/images/services/ChatGPT Image Aug 26, 2025, 09_48_26 PM.png"
     },
     {
       icon: <Route className="w-8 h-8" />,
@@ -215,7 +215,7 @@ const DetailedServices = () => {
       description: "Hassle-free door-to-door service with insured transportation",
       features: ["Free collection", "Secure transport", "Fitted return service"],
       callout: "Within 25 miles of Sheffield",
-      image: "https://images.pexels.com/photos/3806288/pexels-photo-3806288.jpeg?auto=compress&cs=tinysrgb&w=600"
+      image: "/images/services/ChatGPT Image Aug 26, 2025, 09_54_42 PM.png"
     }
   ];
 
