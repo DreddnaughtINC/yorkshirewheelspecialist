@@ -79,7 +79,7 @@ const Header = () => {
                 <a href="/services" className="text-gray-700 hover:text-green-600 font-medium">Services</a>
                 <a href="/shop" className="text-gray-700 hover:text-green-600 font-medium">Shop</a>
                 <a href="/gallery" className="text-gray-700 hover:text-green-600 font-medium">Gallery</a>
-                <a href="/about" className="text-gray-700 hover:text-green-600 font-medium">About</a>
+                <a href="/business" className="text-gray-700 hover:text-green-600 font-medium">Business</a>
                 <a href="/contact" className="text-gray-700 hover:text-green-600 font-medium">Contact</a>
                 <div className="flex flex-col space-y-2 pt-4">
                   <button className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium">Get Quote</button>
