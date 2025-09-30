@@ -80,3 +80,18 @@ body {
 .btn { @apply inline-flex items-center justify-center rounded-lg px-5 py-2.5 font-medium transition; }
 .btn-primary { @apply bg-primary text-primary-foreground hover:opacity-90; }
 .btn-secondary { @apply bg-secondary text-secondary-foreground hover:opacity-90; }
+
+/* Ensure real buttons and common "button-like" elements show pointer cursor by default.
+   Exclude disabled controls so the UX remains correct. Add more selectors if you
+   introduce other button-like utilities (e.g. .button, .clickable). */
+button:not([disabled]),
+input[type="button"]:not([disabled]),
+input[type="submit"]:not([disabled]),
+input[type="reset"]:not([disabled]),
+.btn,
+.btn-primary,
+.btn-secondary,
+[role="button"]:not([disabled]),
+a[role="button"] {
+  cursor: pointer;
+}

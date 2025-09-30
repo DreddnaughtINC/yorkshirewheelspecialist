@@ -68,7 +68,7 @@ const Hero = () => {
           <div className="relative">
             <div className="bg-gradient-to-br from-green-600/20 to-yellow-400/20 rounded-2xl p-8">
               <img
-                src="\images\services\40caf1a0-a150-4712-8111-f68d2d61d6f5.jpeg" // ✅ served from /public
+                src="\images\services\logo.jpeg" // ✅ served from /public
                 alt="Professional alloy wheel repair"
                 className="rounded-xl shadow-2xl w-full h-auto"
               />
