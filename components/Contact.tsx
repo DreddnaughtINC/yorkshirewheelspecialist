@@ -258,32 +258,6 @@ const Contact = () => {
             </div>
           </div>
         </div>
-
-        {/* Service Areas */}
-        <div className="mt-16 bg-white rounded-2xl shadow-lg p-8">
-          <h3 className="text-2xl font-bold text-center mb-8">Service Areas</h3>
-          <div className="grid md:grid-cols-4 gap-6 text-center">
-            <div>
-              <h4 className="font-semibold text-green-600 mb-2">Sheffield</h4>
-              <p className="text-sm text-gray-600">City Centre, Hillsborough, Meadowhall, Chapeltown</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-green-600 mb-2">Rotherham</h4>
-              <p className="text-sm text-gray-600">Town Centre, Rawmarsh, Wickersley, Wath</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-green-600 mb-2">Doncaster</h4>
-              <p className="text-sm text-gray-600">Town Centre, Bentley, Rossington, Armthorpe</p>
-            </div>
-            <div>
-              <h4 className="font-semibold text-green-600 mb-2">Barnsley</h4>
-              <p className="text-sm text-gray-600">Town Centre, Penistone, Hoyland, Royston</p>
-            </div>
-          </div>
-          <p className="text-center text-gray-600 mt-6">
-            Plus surrounding areas within 30 miles of Sheffield. Call to check if we cover your location.
-          </p>
-        </div>
       </div>
     </section>
   );

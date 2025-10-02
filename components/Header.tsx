@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import Logo from './Logo';
 import { Menu, X, Phone, Mail, MapPin } from 'lucide-react';
 
 const Header = () => {
@@ -32,14 +33,8 @@ const Header = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-xl">YWS</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold text-gray-900">YORKSHIRE</h1>
-                <p className="text-sm text-gray-600">WHEEL SPECIALIST</p>
-              </div>
+            <div className="flex items-center">
+              <Logo size="sm" />
             </div>
 
             {/* Desktop Navigation */}

@@ -1,4 +1,5 @@
 import React from 'react';
+import Logo from './Logo';
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 
 const Footer = () => {
@@ -9,13 +10,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-full flex items-center justify-center">
-                <span className="text-black font-bold text-xl">YWS</span>
-              </div>
-              <div>
-                <h1 className="text-xl font-bold">YORKSHIRE</h1>
-                <p className="text-sm text-gray-300">WHEEL SPECIALIST</p>
-              </div>
+              <Logo size="md" />
             </div>
             <p className="text-gray-300 mb-6">
               Sheffield's premier alloy wheel repair, refurbishment, and sales specialist. 

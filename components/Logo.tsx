@@ -1,15 +1,29 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Logo() {
+type LogoProps = {
+  size?: "sm" | "md" | "lg";
+  className?: string;
+};
+
+const sizeMap = {
+  sm: { width: 60, height: 60 },
+  md: { width: 96, height: 96 },
+  lg: { width: 150, height: 150 },
+};
+
+export default function Logo({ size = "sm", className = "" }: LogoProps) {
+  const { width, height } = sizeMap[size] ?? sizeMap.sm;
+
   return (
-    <Link href="/" aria-label="Go to homepage" className="inline-block">
+    <Link href="/" aria-label="Go to homepage" className={`inline-block ${className}`}>
       <Image
-        src="/images/services/40caf1a0-a150-4712-8111-f68d2d61d6f5.jpeg"
+        src="/images/services/logo-removebg-preview.png"
         alt="Yorkshire Wheel Specialist Logo"
-        width={150}   // adjust as needed
-        height={150}  // adjust as needed
-        priority      // ensures logo loads fast
+        width={width}
+        height={height}
+        priority
+        className="object-contain"
       />
     </Link>
   );
