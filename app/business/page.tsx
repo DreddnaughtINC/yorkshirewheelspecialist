@@ -532,7 +532,7 @@ const Page = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 flex items-center justify-center">
               <Phone className="w-5 h-5 mr-2" />
-              Call Business Line: 0114 123 4567
+              Call Business Line: 07455298619
             </button>
             <button className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 flex items-center justify-center">
               <Mail className="w-5 h-5 mr-2" />

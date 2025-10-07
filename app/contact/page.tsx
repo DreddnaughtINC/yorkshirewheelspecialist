@@ -125,7 +125,7 @@ const Page = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900">Phone</h3>
-                      <p className="text-gray-700">0114 123 4567</p>
+                      <p className="text-gray-700">07455298619</p>
                       <p className="text-sm text-green-700">Mon–Sat: 8am–6pm</p>
                     </div>
                   </li>
@@ -136,7 +136,7 @@ const Page = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold text-gray-900">Email</h3>
-                      <p className="text-gray-700">info@yorkshirewheelspecialist.com</p>
+                      <p className="text-gray-700">joe@yorkshirewheelspecialist.co.uk</p>
                       <p className="text-sm text-green-700">Usually reply within 2 hours</p>
                     </div>
                   </li>
@@ -177,7 +177,7 @@ const Page = () => {
                     <div>
                       <h4 className="font-semibold text-yellow-800">Emergency Repairs</h4>
                       <p className="text-sm text-yellow-700">
-                        Need urgent help? Call <strong>07123 456 789</strong> for same-day mobile service.
+                        Need urgent help? Call <strong>07455298619</strong> for same-day mobile service.
                       </p>
                     </div>
                   </div>
@@ -254,7 +254,7 @@ const Page = () => {
                         value={formData.phone}
                         onChange={handleChange}
                         className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-green-600"
-                        placeholder="07123 456 789"
+                        placeholder="07455298619"
                         autoComplete="tel"
                       />
                     </div>

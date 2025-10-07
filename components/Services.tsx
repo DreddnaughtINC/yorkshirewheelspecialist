@@ -158,8 +158,8 @@ const Services = () => {
       icon: <Sparkles className="w-8 h-8" />,
       title: "Kerbed / Corroded Alloys",
       description:
-        "Kerb rash removal and corrosion treatment for a clean, even finish.",
-      features: ["Kerb rash removal", "Corrosion treatment", "Refinish to suit"],
+        "We restore kerbed or corroded alloys to a smooth, clean finish using specialist sanding and refinishing techniques — no need for full replacement.",
+      features: ["Kerb rash removal", "Corrosion treatment", "Durable painted finish"],
       image: "images/services/ChatGPT Image Aug 26, 2025, 09_26_08 PM.png",
     },
   ];

@@ -53,7 +53,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone</h4>
-                    <p className="text-gray-600">0114 123 4567</p>
+                    <p className="text-gray-600">07455298619</p>
                     <p className="text-sm text-green-600">Mon-Sat: 8am-6pm</p>
                   </div>
                 </div>
@@ -64,7 +64,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-gray-600">info@yorkshirewheelspecialist.com</p>
+                    <p className="text-gray-600">joe@yorkshirewheelspecialist.co.uk</p>
                     <p className="text-sm text-green-600">Usually reply within 2 hours</p>
                   </div>
                 </div>
@@ -99,7 +99,7 @@ const Contact = () => {
               <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
                 <h4 className="font-semibold text-yellow-800 mb-2">Emergency Repairs</h4>
                 <p className="text-sm text-yellow-700">
-                  Need urgent wheel repair? Call us on <strong>07123 456 789</strong> for emergency mobile service.
+                  Need urgent wheel repair? Call us on <strong>07455298619</strong> for emergency mobile service.
                 </p>
               </div>
             </div>
@@ -159,7 +159,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-600 focus:border-transparent"
-                      placeholder="07123 456 789"
+                      placeholder="07455298619"
                     />
                   </div>
                   

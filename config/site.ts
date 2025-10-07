@@ -5,9 +5,9 @@ export const site = {
     'Expert alloy wheel refurbishment and sales across Yorkshire. Fast turnaround and premium finishes.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://yorkshirewheelspecialist.co.uk',
   contact: {
-    phone: '+44 114 234 5678',
-    email: 'hello@yorkshirewheelspecialist.co.uk',
-    whatsapp: 'https://wa.me/441142345678',
+    phone: '07455298619',
+    email: 'joe@yorkshirewheelspecialist.co.uk',
+    whatsapp: 'https://wa.me/447455298619',
   },
   social: {
     facebook: '#',
