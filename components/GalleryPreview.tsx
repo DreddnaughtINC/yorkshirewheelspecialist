@@ -219,9 +219,8 @@ function BeforeAfterCard({
   large?: boolean;
   showTitle?: boolean;
 }) {
-  const [pos, setPos] = useState(50);      // divider % position
+  const [pos, setPos] = useState(50);           // divider % position
   const [dragging, setDragging] = useState(false);
-  const [quickToggle, setQuickToggle] = useState(false);
   const wrapRef = useRef<HTMLDivElement | null>(null);
 
   // drag to move divider
@@ -241,11 +240,6 @@ function BeforeAfterCard({
     };
   }, [dragging]);
 
-  const handleTap = () => {
-    setQuickToggle(t => !t);
-    setPos(p => (p > 50 ? 0 : 100));
-  };
-
   return (
     <div className="group relative">
       <div
@@ -262,10 +256,10 @@ function BeforeAfterCard({
           priority={large}
         />
 
-        {/* AFTER layer (clipped) */}
+        {/* AFTER layer (clipped by divider position) */}
         <div
           className="absolute inset-0 will-change-[clip-path]"
-          style={{ clipPath: quickToggle ? "inset(0 0 0 0)" : `inset(0 ${100 - pos}% 0 0)` }}
+          style={{ clipPath: `inset(0 ${100 - pos}% 0 0)` }}
         >
           <Image
             src={item.after}
@@ -277,13 +271,12 @@ function BeforeAfterCard({
           />
         </div>
 
-        {/* Divider handle */}
+        {/* Divider handle (drag only) */}
         <button
           onPointerDown={() => setDragging(true)}
-          onClick={handleTap}
-          aria-label="Drag to compare. Click to toggle."
+          aria-label="Drag left or right to compare"
           className="absolute inset-y-0 z-10 h-full w-10 -translate-x-1/2 cursor-ew-resize touch-none select-none focus:outline-none"
-          style={{ left: `${quickToggle ? 100 : pos}%` }}
+          style={{ left: `${pos}%` }}
         >
           <div className="pointer-events-none absolute inset-y-4 left-1/2 flex -translate-x-1/2 flex-col items-center justify-between">
             <div className="h-full w-px bg-white/70" />
@@ -299,7 +292,9 @@ function BeforeAfterCard({
           {showTitle ? (
             <div className="rounded-full bg-black/60 px-3 py-1 text-xs text-zinc-100 backdrop-blur">{item.title}</div>
           ) : (
-            <div className="rounded-full bg-black/40 px-2 py-0.5 text-[10px] text-zinc-300 backdrop-blur">Drag • Tap to toggle</div>
+            <div className="rounded-full bg-black/40 px-2 py-0.5 text-[10px] text-zinc-300 backdrop-blur">
+              Drag the divider to compare
+            </div>
           )}
           {!!item.tags?.length && (
             <div className="hidden gap-1 sm:flex">
