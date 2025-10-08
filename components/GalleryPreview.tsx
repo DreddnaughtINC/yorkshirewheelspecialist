@@ -31,8 +31,8 @@ export const DEMO_ITEMS: GalleryItem[] = [
   {
     id: "demo-1",
     title: "Curb Rash Touch-up",
-    before: PLACEHOLDER,
-    after: "/images/services/tempallo.jpg",
+    before: "/images/alloys/alloy1after.jpeg",
+    after: "/images/alloys/alloy1before.jpeg",
     altBefore: "Alloy wheel before (placeholder)",
     altAfter: "Alloy wheel after (placeholder)",
     tags: ["Mobile Repair", "Same-day"],
@@ -40,15 +40,15 @@ export const DEMO_ITEMS: GalleryItem[] = [
   {
     id: "demo-2",
     title: "OEM Silver Refresh",
-    before: PLACEHOLDER,
-    after: PLACEHOLDER,
+    before: "/images/alloys/alloy2after.jpeg",
+    after: "/images/alloys/alloy2before.jpeg",
     tags: ["Driveway Service"],
   },
   {
     id: "demo-3",
     title: "Gloss Black Revival",
-    before: PLACEHOLDER,
-    after: PLACEHOLDER,
+    before: "/images/alloys/alloy3after.jpeg",
+    after: "/images/alloys/alloy3before.jpeg",
     tags: ["Trade", "B2C"],
   },
 ];
