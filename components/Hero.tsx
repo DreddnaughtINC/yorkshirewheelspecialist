@@ -75,8 +75,9 @@ const Hero = () => {
             </div>
             {/* Floating Badge */}
             <div className="absolute -bottom-6 -left-6 bg-yellow-400 text-black px-6 py-4 rounded-xl font-bold shadow-lg">
-              <div className="text-2xl">25+</div>
-              <div className="text-sm">Years Experience</div>
+<div className="text-2xl">Trusted</div>
+<div className="text-sm">By Drivers Across Yorkshire</div>
+
             </div>
           </div>
         </div>

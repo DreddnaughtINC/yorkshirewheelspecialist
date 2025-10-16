@@ -62,8 +62,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-green-400 mt-0.5" />
                 <div>
-                  <p className="text-gray-300">123 Industrial Estate</p>
-                  <p className="text-gray-300">Sheffield S1 2AB</p>
+                  <p className="text-gray-300">Sheffield</p>
+                  <p className="text-gray-300">South Yorkshire</p>
                 </div>
               </div>
               
@@ -82,8 +82,8 @@ const Footer = () => {
             <div className="mt-6">
               <h4 className="font-semibold mb-3">Opening Hours</h4>
               <div className="text-sm text-gray-300 space-y-1">
-                <p>Mon-Fri: 8:00am - 6:00pm</p>
-                <p>Saturday: 8:00am - 4:00pm</p>
+                <p>Mon-Fri: 8:00am - 5:00pm</p>
+                <p>Saturday: Closed</p>
                 <p>Sunday: Closed</p>
               </div>
             </div>

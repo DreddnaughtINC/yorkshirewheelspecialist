@@ -1,0 +1,16 @@
+{
+  "name": "Yorkshire Wheel Specialist",
+  "short_name": "YWS",
+  "description": "Expert alloy wheel refurbishment and sales across Yorkshire. Fast turnaround and premium finishes.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffd23f",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

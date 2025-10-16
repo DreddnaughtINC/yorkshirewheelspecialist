@@ -34,11 +34,11 @@ const DetailedServices = () => {
       icon: <Palette className="w-8 h-8" />,
       title: "Powder Coating",
       subtitle: "Factory-Grade Finish",
-      description: "Our powder coating service provides a durable, long-lasting finish that's superior to traditional paint. Using electrostatic application and oven-curing at 200°C, we achieve a flawless, chip-resistant coating.",
+      description: "Our powder coating service provides a durable, long-lasting finish that's superior to traditional paint.",
       image: "/images/services/ChatGPT Image Aug 26, 2025, 09_16_15 PM.png",
       priceFrom: 85,
       duration: "3-5 days",
-      warranty: "2 years",
+      warranty: "12 months",
       features: [
         "Complete strip and chemical cleaning",
         "Shot blasting for perfect adhesion",
@@ -63,11 +63,11 @@ const DetailedServices = () => {
       icon: <Diamond className="w-8 h-8" />,
       title: "Diamond Cut Repairs",
       subtitle: "CNC Precision Machining",
-      description: "Restore the crisp, mirror-like finish of diamond cut wheels using our state-of-the-art CNC lathe. We recreate the original factory specification with precision machining.",
+      description: "We provide cosmetic repairs for diamond-cut wheels using colour-matched spray refinishing. For full diamond-cut restoration, we work with trusted specialists to ensure a factory-quality finish.",
       image: "/images/services/car-wheel-with-new-tires-close-up.jpg",
       priceFrom: 95,
       duration: "4-6 days",
-      warranty: "18 months",
+      warranty: "12 months",
       features: [
         "CNC lathe machining to OEM specification",
         "Perfect face geometry recreation",
@@ -123,7 +123,7 @@ const DetailedServices = () => {
       image: "/images/services/2148194142.jpg",
       priceFrom: 150,
       duration: "5-7 days",
-      warranty: "2 years",
+      warranty: "12 months",
       features: [
         "Complete wheel disassembly",
         "Individual component refurbishment",
@@ -151,7 +151,7 @@ const DetailedServices = () => {
       image: "/images/services/man-fixing-wheel-bolts.jpg",
       priceFrom: 45,
       duration: "Same day",
-      warranty: "6 months",
+      warranty: "12 months",
       features: [
         "Localized repair area only",
         "Color matching technology",
@@ -179,7 +179,7 @@ const DetailedServices = () => {
       image: "/images/services/ChatGPT Image Aug 26, 2025, 09_26_08 PM.png",
       priceFrom: 65,
       duration: "3-4 days",
-      warranty: "18 months",
+      warranty: "12 months",
       features: [
         "Kerb rash removal and reshaping",
         "Corrosion treatment and prevention",
@@ -206,13 +206,13 @@ const DetailedServices = () => {
       title: "Mobile Repair Service",
       description: "We come to you across Yorkshire with our fully equipped mobile workshop",
       features: ["On-site repairs", "Yorkshire-wide coverage", "Flexible scheduling"],
-      callout: "Available 6 days a week",
+      callout: "Available 5 days a week",
       image: "/images/services/ChatGPT Image Aug 26, 2025, 09_48_26 PM.png"
     },
     {
       icon: <Route className="w-8 h-8" />,
       title: "Collection & Delivery",
-      description: "Hassle-free door-to-door service with insured transportation",
+      description: "Hassle-free door-to-door service",
       features: ["Free collection", "Secure transport", "Fitted return service"],
       callout: "Within 25 miles of Sheffield",
       image: "/images/services/ChatGPT Image Aug 26, 2025, 09_54_42 PM.png"
@@ -233,10 +233,9 @@ const DetailedServices = () => {
               Professional Wheel
               <span className="text-green-400"> Services</span>
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
-              From minor scratches to complete refurbishments, we restore your wheels to showroom condition 
-              using state-of-the-art equipment and premium materials.
-            </p>
+  <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-8">
+    From minor scratches to kerb scuffs, we restore your wheels on-site from our mobile van using professional spray refinishing and colour matching.
+  </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">
                 Get Free Quote
@@ -334,101 +333,27 @@ const DetailedServices = () => {
 
                   {/* CTAs */}
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <button className="flex-1 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center">
+                    <a
+                      href="tel:07455298619"
+                      aria-label="Call Yorkshire Wheel Specialist on 07455298619 for a quote"
+                      className="flex-1 bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center"
+                    >
                       <Phone className="w-5 h-5 mr-2" />
                       Call for Quote
-                    </button>
-                    <button className="flex-1 border-2 border-green-600 text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors flex items-center justify-center">
+                    </a>
+
+                    <a
+                      href="mailto:joe@yorkshirewheelspecialist.co.uk"
+                      aria-label="Email Yorkshire Wheel Specialist for an enquiry"
+                      className="flex-1 border-2 border-green-600 text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors flex items-center justify-center"
+                    >
                       <Mail className="w-5 h-5 mr-2" />
                       Email Enquiry
-                    </button>
+                    </a>
                   </div>
+
                 </div>
               </div>
-
-              {/* Service Features & Process */}
-              <div className="grid lg:grid-cols-2 gap-12 mb-16">
-                {/* Features */}
-                <div className="bg-white rounded-2xl shadow-lg p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                    <CheckCircle className="w-6 h-6 text-green-600 mr-3" />
-                    What's Included
-                  </h3>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start space-x-3">
-                        <div className="w-2 h-2 bg-green-600 rounded-full mt-2"></div>
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  
-                  {service.specialNote && (
-                    <div className="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                      <p className="text-sm text-yellow-800">
-                        <strong>Note:</strong> {service.specialNote}
-                      </p>
-                    </div>
-                  )}
-                </div>
-
-                {/* Process */}
-                <div className="bg-white rounded-2xl shadow-lg p-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                    <Award className="w-6 h-6 text-green-600 mr-3" />
-                    Our Process
-                  </h3>
-                  <div className="space-y-4">
-                    {service.process.map((step, idx) => (
-                      <div key={idx} className="flex items-start space-x-4">
-                        <div className="w-8 h-8 bg-green-600 text-white rounded-full flex items-center justify-center text-sm font-bold">
-                          {idx + 1}
-                        </div>
-                        <div className="flex-1">
-                          <p className="text-gray-700">{step}</p>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Additional Info */}
-              {(service.colors || service.expertise || service.ideal || service.prevention || service.safetyNote) && (
-                <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-2xl p-8 text-white mb-16">
-                  <div className="grid md:grid-cols-2 gap-8">
-                    {service.colors && (
-                      <div>
-                        <h4 className="font-semibold mb-3 flex items-center">
-                          <Palette className="w-5 h-5 mr-2" />
-                          Available Colors
-                        </h4>
-                        <div className="flex flex-wrap gap-2">
-                          {service.colors.map((color, idx) => (
-                            <span key={idx} className="bg-white/20 px-3 py-1 rounded-full text-sm">
-                              {color}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-                    
-                    {(service.expertise || service.ideal || service.prevention || service.safetyNote) && (
-                      <div>
-                        <h4 className="font-semibold mb-3 flex items-center">
-                          <Zap className="w-5 h-5 mr-2" />
-                          {service.expertise ? 'Our Expertise' : 
-                           service.ideal ? 'Ideal For' :
-                           service.prevention ? 'Added Value' : 'Safety First'}
-                        </h4>
-                        <p className="text-white/90">
-                          {service.expertise || service.ideal || service.prevention || service.safetyNote}
-                        </p>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
             </div>
           ))}
         </div>
@@ -471,13 +396,22 @@ const DetailedServices = () => {
                   </div>
 
                   <div className="flex space-x-4">
-                    <button className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center">
-                      Book Now
+                    <a
+                      href="tel:07455298619"
+                      aria-label="Call Yorkshire Wheel Specialist on 07455298619"
+                      className="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center"
+                    >
+                      Call Now
                       <ArrowRight className="w-4 h-4 ml-2" />
-                    </button>
-                    <button className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors">
-                      Learn More
-                    </button>
+                    </a>
+
+                    <a
+                      href="mailto:joe@yorkshirewheelspecialist.co.uk"
+                      aria-label="Email Yorkshire Wheel Specialist to book now"
+                      className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors"
+                    >
+                      Book Now
+                    </a>
                   </div>
                 </div>
               </div>

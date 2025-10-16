@@ -54,7 +54,7 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone</h4>
                     <p className="text-gray-600">07455298619</p>
-                    <p className="text-sm text-green-600">Mon-Sat: 8am-6pm</p>
+                    <p className="text-sm text-green-600">Mon-Fri: 8am-5pm</p>
                   </div>
                 </div>
 
@@ -74,8 +74,8 @@ const Contact = () => {
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Workshop</h4>
-                    <p className="text-gray-600">123 Industrial Estate<br />Sheffield S1 2AB</p>
+                    <h4 className="font-semibold text-gray-900">Location</h4>
+                    <p className="text-gray-600">Sheffield<br />South Yorkshire</p>
                     <p className="text-sm text-green-600">Mobile service available</p>
                   </div>
                 </div>
@@ -87,21 +87,16 @@ const Contact = () => {
                   <div>
                     <h4 className="font-semibold text-gray-900">Opening Hours</h4>
                     <div className="text-gray-600 text-sm space-y-1">
-                      <p>Mon-Fri: 8:00am - 6:00pm</p>
-                      <p>Saturday: 8:00am - 4:00pm</p>
+                      <p>Mon-Fri: 8:00am - 5:00pm</p>
+                      <p>Saturday: Closed</p>
                       <p>Sunday: Closed</p>
                     </div>
                   </div>
                 </div>
               </div>
 
+              {/* Map Placeholder */}
               {/* Emergency Contact */}
-              <div className="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                <h4 className="font-semibold text-yellow-800 mb-2">Emergency Repairs</h4>
-                <p className="text-sm text-yellow-700">
-                  Need urgent wheel repair? Call us on <strong>07455298619</strong> for emergency mobile service.
-                </p>
-              </div>
             </div>
           </div>
 

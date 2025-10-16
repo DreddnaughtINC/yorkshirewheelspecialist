@@ -115,29 +115,34 @@ const Services = () => {
   // Accurate core services
   const services: Service[] = [
     {
-      icon: <Palette className="w-8 h-8" />,
-      title: "Powder Coating",
-      description:
-        "Factory-grade, oven-cured finish in OEM or custom colours for long-lasting protection.",
-      features: ["Full strip & prep", "Oven-cured", "OEM & custom colours"],
-      image: "/images/services/ChatGPT Image Aug 26, 2025, 09_16_15 PM.png",
-    },
+    icon: <Wand2 className="w-8 h-8" />,
+    title: "Mobile Wheel Refurbishment",
+    description:
+      "Professional on-site alloy wheel repairs carried out from our fully equipped mobile van — restoring your wheels quickly and conveniently at your home or workplace.",
+    features: ["Scuff & scratch removal", "Colour matching", "Same-day service"],
+    image: "/images/services/tempallo.jpg",
+  },
     {
-      icon: <Diamond className="w-8 h-8" />,
-      title: "Diamond Cut Repairs",
-      description:
-        "CNC machining restores the crisp, reflective diamond-cut face with protective lacquer.",
-      features: ["CNC lathe", "OEM match", "Clear lacquer"],
-      image: "/images/services/car-wheel-with-new-tires-close-up.jpg",
-    },
+  icon: <Diamond className="w-8 h-8" />,
+  title: "Diamond Cut Repairs",
+  description:
+    "We provide cosmetic repairs for diamond-cut wheels using colour-matched spray refinishing. For full diamond-cut restoration, we work with trusted specialists to ensure a factory-quality finish.",
+  features: [
+    "Colour-matched spray refinishing",
+    "Cosmetic diamond-cut touch-ups",
+    "Referral for full restoration"
+  ],
+  image: "/images/services/car-wheel-with-new-tires-close-up.jpg",
+},
+
     {
-      icon: <Hammer className="w-8 h-8" />,
-      title: "Buckled / Cracked Alloys",
-      description:
-        "Straightening and crack welding with balance & safety checks before return.",
-      features: ["Straightening", "Crack welding", "Balance & safety check"],
-      image: "/images/services/welding-8445458_1280.jpg",
-    },
+    icon: <Hammer className="w-8 h-8" />,
+    title: "Cracked or Buckled Alloys",
+    description:
+      "Minor cracks or buckles are assessed and, where possible, repaired safely before balancing and refinishing.",
+    features: ["Crack inspection", "Straightening (where viable)", "Safety checks"],
+    image: "/images/services/welding-8445458_1280.jpg",
+  },
     {
       icon: <Scissors className="w-8 h-8" />,
       title: "Split Rims",

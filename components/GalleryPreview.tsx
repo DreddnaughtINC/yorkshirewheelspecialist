@@ -82,14 +82,23 @@ const GalleryPreview: React.FC<Props> = ({ items = DEMO_ITEMS, ctaHref = "/galle
   return (
     <section aria-labelledby="gallery-preview" className="relative w-full">
       {/* Header */}
-      <div className="mx-auto max-w-7xl px-6 sm:px-8">
-        <h2 id="gallery-preview" className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-          Before / After: Mobile Wheel Repairs
-        </h2>
-        <p className="mt-2 max-w-2xl text-sm text-zinc-400">
-          Real work by our mobile spray team. Drag the divider or tap to toggle.
-        </p>
-      </div>
+{/* Header */}
+{/* Header */}
+<div className="mx-auto max-w-7xl px-6 sm:px-8 text-center">
+  <h2
+    id="gallery-preview"
+    className="text-3xl sm:text-4xl font-bold tracking-tight text-[color:var(--brand-black)] dark:text-white"
+  >
+    Before & After:{' '}
+    <span className="text-[color:var(--brand-green)]">
+      Mobile Alloy Wheel Repairs
+    </span>
+  </h2>
+  <p className="mt-3 max-w-2xl mx-auto text-sm sm:text-base text-[color:var(--brand-grey)] dark:text-zinc-300">
+    <span className="block sm:inline"> Drag the slider or tap to compare.</span>
+  </p>
+</div>
+
 
       {/* Spotlight (always shows – uses placeholder until you swap real images) */}
       {spotlight && (
