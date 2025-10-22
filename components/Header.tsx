@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <>
       {/* Top Bar */}
-      <div className="bg-gray-700 text-white py-2 px-4">
+      <div className="bg-gray-800 text-white py-2 px-4">
         <div className="max-w-7xl mx-auto flex justify-between items-center text-sm">
           <div className="flex items-center space-x-6">
             <div className="flex items-center space-x-2">
