@@ -17,6 +17,7 @@ import {
   PoundSterling,
   Handshake,
   Star,
+  Wallet,
 } from 'lucide-react';
 
 type CalculatorState = {
@@ -219,16 +220,16 @@ const Page = () => {
 
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-400 mb-1">500+</div>
-                  <div className="text-sm text-gray-300">Business Clients</div>
+                  <div className="text-3xl font-bold text-green-400 mb-1">12</div>
+                  <div className="text-sm text-gray-300">Month Warranty Cover</div>
                 </div>
                 <div className="text-center">
                   <div className="text-3xl font-bold text-yellow-400 mb-1">60%</div>
                   <div className="text-sm text-gray-300">Average Savings</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-3xl font-bold text-green-400 mb-1">24hr</div>
-                  <div className="text-sm text-gray-300">Express Service</div>
+                  <div className="text-3xl font-bold text-green-400 mb-1">24 hr</div>
+                  <div className="text-sm text-gray-300">Response Time</div>
                 </div>
               </div>
             </div>
@@ -299,30 +300,20 @@ const Page = () => {
                   ))}
                 </div>
 
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <Star className="w-5 h-5 text-green-600" />
-                    <span className="font-semibold text-green-800">Success Story</span>
-                  </div>
-                  <p className="text-green-700">{selected.caseStudy}</p>
-                </div>
+                
               </div>
 
               <div className="bg-white rounded-xl shadow-lg p-8">
                 <h4 className="text-xl font-bold text-gray-900 mb-6">Get Started Today</h4>
                 <div className="space-y-4">
-                  <button className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center">
+                  <a href="tel:07455298619" className="w-full bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 transition-colors flex items-center justify-center">
                     <Phone className="w-5 h-5 mr-2" />
                     Call for Industry Quote
-                  </button>
-                  <button className="w-full border-2 border-green-600 text-green-600 py-3 px-6 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors flex items-center justify-center">
+                  </a>
+                  <a href="mailto:joe@yorkshirewheelspecialist.co.uk" className="w-full border-2 border-green-600 text-green-600 py-3 px-6 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors flex items-center justify-center">
                     <Mail className="w-5 h-5 mr-2" />
                     Request Consultation
-                  </button>
-                  <button className="w-full bg-gray-100 text-gray-700 py-3 px-6 rounded-lg font-semibold hover:bg-gray-200 transition-colors flex items-center justify-center">
-                    <FileText className="w-5 h-5 mr-2" />
-                    Download Case Study
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -469,9 +460,9 @@ const Page = () => {
                   </div>
                 </div>
 
-                <button className="w-full bg-white text-green-600 py-4 px-6 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors">
+                <a href="mailto:joe@yorkshirewheelspecialist.co.uk" className="w-full bg-white text-green-600 py-4 px-6 rounded-lg font-bold text-lg hover:bg-gray-100 transition-colors">
                   Get Your Custom Quote
-                </button>
+                </a>
               </div>
             </div>
           </div>
@@ -496,7 +487,7 @@ const Page = () => {
 
             <div className="text-center">
               <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <PoundSterling className="w-8 h-8 text-green-600" />
+                <Wallet className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="font-semibold text-lg mb-2">Cost Effective</h3>
               <p className="text-gray-600">Save up to 60% compared to wheel replacement with volume discounts</p>
@@ -530,14 +521,14 @@ const Page = () => {
             Get your free business consultation today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 flex items-center justify-center">
+            <a href="tel:07455298619" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 flex items-center justify-center">
               <Phone className="w-5 h-5 mr-2" />
               Call Business Line: 07455298619
-            </button>
-            <button className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 flex items-center justify-center">
+            </a>
+            <a href="mailto:joe@yorkshirewheelspecialist.co.uk" className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 flex items-center justify-center">
               <Mail className="w-5 h-5 mr-2" />
               Request Business Quote
-            </button>
+            </a>
           </div>
         </div>
       </section>

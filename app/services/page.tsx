@@ -36,7 +36,7 @@ const DetailedServices = () => {
       subtitle: "Factory-Grade Finish",
       description: "Our powder coating service provides a durable, long-lasting finish that's superior to traditional paint.",
       image: "/images/services/ChatGPT Image Aug 26, 2025, 09_16_15 PM.png",
-      priceFrom: 85,
+      priceFrom: "85 Per Wheel",
       duration: "3-5 days",
       warranty: "12 months",
       features: [
@@ -65,7 +65,7 @@ const DetailedServices = () => {
       subtitle: "CNC Precision Machining",
       description: "We provide cosmetic repairs for diamond-cut wheels using colour-matched spray refinishing. For full diamond-cut restoration, we work with trusted specialists to ensure a factory-quality finish.",
       image: "/images/services/car-wheel-with-new-tires-close-up.jpg",
-      priceFrom: 95,
+      priceFrom: "95 Per Wheel",
       duration: "4-6 days",
       warranty: "12 months",
       features: [
@@ -93,7 +93,7 @@ const DetailedServices = () => {
       subtitle: "Structural Restoration",
       description: "Professional repair of buckled rims and crack welding using specialized equipment. All repairs are pressure tested and balanced to ensure safety and performance.",
       image: "/images/services/welding-8445458_1280.jpg",
-      priceFrom: 75,
+      priceFrom: "75 Per Wheel",
       duration: "2-4 days",
       warranty: "12 months",
       features: [
@@ -121,7 +121,7 @@ const DetailedServices = () => {
       subtitle: "Multi-Piece Wheel Specialists",
       description: "Complete refurbishment of split rim wheels including disassembly, individual component restoration, new hardware, and professional reassembly with correct torque specifications.",
       image: "/images/services/2148194142.jpg",
-      priceFrom: 150,
+      priceFrom: "150 Per Wheel",
       duration: "5-7 days",
       warranty: "12 months",
       features: [
@@ -149,7 +149,7 @@ const DetailedServices = () => {
       subtitle: "Quick Cosmetic Fixes",
       description: "Small to Medium Area Repair Technology for minor scuffs, scratches, and kerb damage. Cost-effective solution that maintains wheel integrity while improving appearance.",
       image: "/images/services/man-fixing-wheel-bolts.jpg",
-      priceFrom: 45,
+      priceFrom: "45 Per Wheel",
       duration: "Same day",
       warranty: "12 months",
       features: [
@@ -177,7 +177,7 @@ const DetailedServices = () => {
       subtitle: "Complete Restoration",
       description: "Comprehensive repair service for kerb damage and corrosion issues. We restore wheels to original condition using professional techniques and premium materials.",
       image: "/images/services/ChatGPT Image Aug 26, 2025, 09_26_08 PM.png",
-      priceFrom: 65,
+      priceFrom: "65 Per Wheel",
       duration: "3-4 days",
       warranty: "12 months",
       features: [
@@ -237,13 +237,23 @@ const DetailedServices = () => {
     From minor scratches to kerb scuffs, we restore your wheels on-site from our mobile van using professional spray refinishing and colour matching.
   </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">
-                Get Free Quote
-              </button>
-              <button className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">
-                Book Consultation
-              </button>
-            </div>
+  {/* Call Now button */}
+  <a
+    href="tel:07455298619"
+    className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105"
+  >
+    Call Now
+  </a>
+
+  {/* Email for a Free Quote button */}
+  <a
+    href="mailto:joe@yorkshirewheelspecialist.co.uk?subject=Free%20Alloy%20Wheel%20Quote&body=Hi%20Joe,%0D%0A%0D%0AI'd%20like%20a%20free%20quote%20for%20my%20alloy%20wheels.%20Please%20contact%20me%20back.%0D%0A%0D%0AThanks,"
+    className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105"
+  >
+    Email for Free Quote
+  </a>
+</div>
+
           </div>
         </div>
       </section>

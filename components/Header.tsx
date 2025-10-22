@@ -49,12 +49,18 @@ const Header = () => {
 
             {/* CTA Buttons */}
             <div className="hidden lg:flex items-center space-x-4">
-              <button className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors">
-                Get Quote
-              </button>
-              <button className="border-2 border-yellow-400 text-yellow-600 px-6 py-2 rounded-lg font-medium hover:bg-yellow-400 hover:text-white transition-colors">
-                Book Mobile
-              </button>
+              <a
+                href="tel:+447455298619"
+                className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 transition-colors"
+              >
+                Call Now
+              </a>
+              <a
+                href="mailto:joe@yorkshirewheelspecialist.co.uk?subject=Alloy%20Wheel%20Quote"
+                className="border-2 border-yellow-400 text-yellow-600 px-6 py-2 rounded-lg font-medium hover:bg-yellow-400 hover:text-white transition-colors"
+              >
+                Get Free Quote
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
