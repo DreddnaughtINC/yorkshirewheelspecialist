@@ -65,7 +65,7 @@ const Header = () => {
 
             {/* Mobile Menu Button */}
             <button
-              className="lg:hidden p-2"
+              className="lg:hidden text-black"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -74,7 +74,7 @@ const Header = () => {
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="lg:hidden py-4 border-t bg-black">
+            <div className="lg:hidden py-4 border-t bg-white">
               <nav className="flex flex-col space-y-4">
                 <a href="/" className="text-gray-700 hover:text-green-600 font-medium">Home</a>
                 <a href="/services" className="text-gray-700 hover:text-green-600 font-medium">Services</a>
