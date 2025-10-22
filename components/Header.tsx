@@ -74,7 +74,7 @@ const Header = () => {
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="lg:hidden py-4 border-t bg-white">
+            <div className="lg:hidden py-4 border-t bg-black">
               <nav className="flex flex-col space-y-4">
                 <a href="/" className="text-gray-700 hover:text-green-600 font-medium">Home</a>
                 <a href="/services" className="text-gray-700 hover:text-green-600 font-medium">Services</a>

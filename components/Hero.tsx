@@ -35,13 +35,22 @@ const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">
-                Get Free Quote
-              </button>
-              <button className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105">
-                Book Mobile Service
-              </button>
-            </div>
+            {/* Call Now button */}
+            <a
+              href="tel:07455298619"
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 text-center"
+            >
+              Call Now
+            </a>
+
+            {/* Email for Free Quote button */}
+            <a
+              href="mailto:joe@yorkshirewheelspecialist.co.uk?subject=Free%20Alloy%20Wheel%20Quote&body=Hi%20Joe,%0D%0A%0D%0AI'd%20like%20a%20free%20quote%20for%20my%20alloy%20wheels.%20Please%20contact%20me%20back.%0D%0A%0D%0AThanks,"
+              className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 text-center"
+            >
+              Get Free Quote
+            </a>
+          </div>
 
             {/* Features */}
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
@@ -77,7 +86,6 @@ const Hero = () => {
             <div className="absolute -bottom-6 -left-6 bg-yellow-400 text-black px-6 py-4 rounded-xl font-bold shadow-lg">
 <div className="text-2xl">Trusted</div>
 <div className="text-sm">By Drivers Across Yorkshire</div>
-
             </div>
           </div>
         </div>
