@@ -74,7 +74,7 @@ const Header = () => {
 
           {/* Mobile Menu */}
           {isMenuOpen && (
-            <div className="lg:hidden py-4 border-t">
+            <div className="lg:hidden py-4 border-t bg-white">
               <nav className="flex flex-col space-y-4">
                 <a href="/" className="text-gray-700 hover:text-green-600 font-medium">Home</a>
                 <a href="/services" className="text-gray-700 hover:text-green-600 font-medium">Services</a>
@@ -82,9 +82,24 @@ const Header = () => {
                 <a href="/gallery" className="text-gray-700 hover:text-green-600 font-medium">Gallery</a>
                 <a href="/business" className="text-gray-700 hover:text-green-600 font-medium">Business</a>
                 <a href="/contact" className="text-gray-700 hover:text-green-600 font-medium">Contact</a>
+
+                {/* Mobile CTA buttons */}
                 <div className="flex flex-col space-y-2 pt-4">
-                  <button className="bg-green-600 text-white px-6 py-2 rounded-lg font-medium">Get Quote</button>
-                  <button className="border-2 border-yellow-400 text-yellow-600 px-6 py-2 rounded-lg font-medium">Book Mobile</button>
+                  {/* Call Now button */}
+                  <a
+                    href="tel:07455298619"
+                    className="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg font-medium text-center transition-colors"
+                  >
+                    Call Now
+                  </a>
+
+                  {/* Email for Free Quote button */}
+                  <a
+                    href="mailto:joe@yorkshirewheelspecialist.co.uk?subject=Free%20Alloy%20Wheel%20Quote&body=Hi%20Joe,%0D%0A%0D%0AI'd%20like%20a%20free%20quote%20for%20my%20alloy%20wheels.%20Please%20contact%20me%20back.%0D%0A%0D%0AThanks,"
+                    className="border-2 border-yellow-400 text-yellow-600 hover:bg-yellow-400 hover:text-black px-6 py-2 rounded-lg font-medium text-center transition-colors"
+                  >
+                    Get Free Quote
+                  </a>
                 </div>
               </nav>
             </div>
