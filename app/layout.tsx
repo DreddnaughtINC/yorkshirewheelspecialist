@@ -3,6 +3,8 @@ import './globals.css';
 import { site } from '../config/site'; // switch to default import if your export is default
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import CookiePreferences from '../components/CookiePreferences';
+import OpenCookieSettingsButton from '@/components/OpenCookieSettingsButton';
 
 export const metadata: Metadata = {
   title: 'Yorkshire Wheel Specialist | Alloy Wheel Repair & Refurbishment Sheffield',
@@ -184,9 +186,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className="bg-background text-foreground antialiased">
-        <Header />
-        {children}
-        <Footer />
+  <Header />
+  {children}
+  <Footer />
+  {/* Cookie preferences modal (client) mounted site-wide so other scripts can open it */}
+  <CookiePreferences />
       </body>
     </html>
   );

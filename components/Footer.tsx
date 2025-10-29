@@ -30,15 +30,14 @@ const Footer = () => {
           </div>
 
           {/* Services */}
-          <div>
+         	  <div>
             <h3 className="text-lg font-semibold mb-6">Services</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Wheel Repair</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Refurbishment</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Mobile Service</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Wheel Sales</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Crack Welding</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Diamond Cut Finish</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-green-400 transition-colors">Wheel Repair</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-green-400 transition-colors">Refurbishment</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-green-400 transition-colors">Mobile Service</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-green-400 transition-colors">Crack Welding</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-green-400 transition-colors">Diamond Cut Finish</a></li>
             </ul>
           </div>
 
@@ -46,12 +45,12 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">About Us</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Gallery</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Testimonials</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">FAQ</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="text-gray-300 hover:text-green-400 transition-colors">Terms & Conditions</a></li>
+              <li><a href="/services" className="text-gray-300 hover:text-green-400 transition-colors">Services</a></li>
+              <li><a href="/gallery" className="text-gray-300 hover:text-green-400 transition-colors">Gallery</a></li>
+              <li><a href="/business" className="text-gray-300 hover:text-green-400 transition-colors">Business</a></li>
+              <li><a href="/contact" className="text-gray-300 hover:text-green-400 transition-colors">Contact</a></li>
+              <li><a href="/shop" className="text-gray-300 hover:text-green-400 transition-colors">Shop</a></li>
+
             </ul>
           </div>
 
@@ -90,6 +89,12 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* Company registration (UK legal info) */}
+        <div className="mt-6 text-sm text-gray-400">
+          <p>YORKSHIRE WHEEL SPECIALIST LIMITED (company number 16654097), registered in England & Wales.</p>
+          <p>Registered office: Sheffield, England, S6 5BX.</p>
+        </div>
+
         {/* Bottom Bar */}
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
@@ -97,9 +102,8 @@ const Footer = () => {
               © 2025 Yorkshire Wheel Specialist. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Terms of Service</a>
-              <a href="#" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Cookie Policy</a>
+              <a href="/privacy" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Privacy Policy</a>
+              <a href="/cookie-policy" className="text-gray-400 hover:text-green-400 text-sm transition-colors">Cookie Policy</a>
             </div>
           </div>
         </div>

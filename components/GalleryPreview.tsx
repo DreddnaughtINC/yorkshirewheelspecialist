@@ -228,7 +228,7 @@ function BeforeAfterCard({
   large?: boolean;
   showTitle?: boolean;
 }) {
-  const [pos, setPos] = useState(50);           // divider % position
+  const [pos, setPos] = useState(0.5);           // divider % position
   const [dragging, setDragging] = useState(false);
   const wrapRef = useRef<HTMLDivElement | null>(null);
 
