@@ -1,6 +1,6 @@
+// app/contact/page.tsx
 'use client';
 
-import React, { useMemo, useState } from 'react';
 import Image from 'next/image';
 import {
   Phone,
@@ -12,70 +12,19 @@ import {
   ShieldCheck,
   AlertTriangle,
 } from 'lucide-react';
-
-type FormData = {
-  name: string;
-  email: string;
-  phone: string;
-  service: string;
-  message: string;
-  preferredContact: 'email' | 'phone';
-};
+import { useForm, ValidationError } from '@formspree/react';
+import React from 'react';
 
 const Page = () => {
-  const [formData, setFormData] = useState<FormData>({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: '',
-    preferredContact: 'email',
-  });
+  // Use your Formspree form ID here
+  const [state, handleSubmit] = useForm('xdkprvyg');
 
-  const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
-  const isValid = useMemo(() => {
-    const hasBasics =
-      formData.name.trim().length > 1 &&
-      /\S+@\S+\.\S+/.test(formData.email) &&
-      formData.phone.trim().length >= 7;
-    return hasBasics;
-  }, [formData]);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
-  ) => {
-    const { name, value } = e.target;
-    setFormData((s) => ({ ...s, [name]: value }));
-    if (status !== 'idle') setStatus('idle');
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!isValid) {
-      setStatus('error');
-      return;
-    }
-    setLoading(true);
-    try {
-      // TODO: POST to /api/contact (create later). For now we just simulate success.
-      await new Promise((r) => setTimeout(r, 600));
-      setStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: '',
-        preferredContact: 'email',
-      });
-    } catch {
-      setStatus('error');
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Success screen (inline banner at the top of the form is also shown below)
+  const SuccessBanner = (
+    <div className="mb-6 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-green-800">
+      Thanks! Your request has been sent. We’ll be in touch shortly.
+    </div>
+  );
 
   return (
     <main className="min-h-screen bg-gray-50">
@@ -126,7 +75,7 @@ const Page = () => {
                     <div>
                       <h3 className="font-semibold text-gray-900">Phone</h3>
                       <p className="text-gray-700">07455298619</p>
-                      <p className="text-sm text-green-700">Mon–Sat: 8am–6pm</p>
+                      <p className="text-sm text-green-700">Mon–Fri: 8am–5pm</p>
                     </div>
                   </li>
 
@@ -163,25 +112,13 @@ const Page = () => {
                     <div>
                       <h3 className="font-semibold text-gray-900">Opening Hours</h3>
                       <div className="text-gray-700 text-sm space-y-1">
-                        <p>Mon–Fri: 8:00–18:00</p>
-                        <p>Saturday: 8:00–16:00</p>
+                        <p>Mon–Fri: 8:00–17:00</p>
+                        <p>Saturday: Closed</p>
                         <p>Sunday: Closed</p>
                       </div>
                     </div>
                   </li>
                 </ul>
-
-                <div className="mt-8 rounded-lg border border-yellow-200 bg-yellow-50 p-4">
-                  <div className="flex items-start gap-3">
-                    <AlertTriangle className="h-5 w-5 text-yellow-700 mt-0.5" />
-                    <div>
-                      <h4 className="font-semibold text-yellow-800">Emergency Repairs</h4>
-                      <p className="text-sm text-yellow-700">
-                        Need urgent help? Call <strong>07455298619</strong> for same-day mobile service.
-                      </p>
-                    </div>
-                  </div>
-                </div>
               </div>
             </aside>
 
@@ -190,19 +127,13 @@ const Page = () => {
               <div className="rounded-2xl bg-white shadow-lg ring-1 ring-gray-100 p-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Request Your Free Quote</h2>
 
-                {/* Status banners */}
-                {status === 'success' && (
-                  <div className="mb-6 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-green-800">
-                    Thanks! Your request has been sent. We’ll be in touch shortly.
-                  </div>
-                )}
-                {status === 'error' && (
-                  <div className="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-800">
-                    Please check your details and try again.
-                  </div>
-                )}
+                {/* Status banner (success) */}
+                {state.succeeded && SuccessBanner}
 
                 <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                  {/* Set a subject for the email in Formspree */}
+                  <input type="hidden" name="_subject" value="New Website Quote Enquiry — Yorkshire Wheel Specialist" />
+
                   {/* Personal Info */}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div>
@@ -214,8 +145,6 @@ const Page = () => {
                         name="name"
                         type="text"
                         required
-                        value={formData.name}
-                        onChange={handleChange}
                         className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-green-600"
                         placeholder="Your full name"
                         autoComplete="name"
@@ -231,13 +160,11 @@ const Page = () => {
                         name="email"
                         type="email"
                         required
-                        value={formData.email}
-                        onChange={handleChange}
                         className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-green-600"
                         placeholder="you@example.com"
                         autoComplete="email"
-                        aria-invalid={status === 'error' && !/\S+@\S+\.\S+/.test(formData.email)}
                       />
+                      <ValidationError prefix="Email" field="email" errors={state.errors} />
                     </div>
                   </div>
 
@@ -251,8 +178,6 @@ const Page = () => {
                         name="phone"
                         type="tel"
                         required
-                        value={formData.phone}
-                        onChange={handleChange}
                         className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-green-600"
                         placeholder="07455298619"
                         autoComplete="tel"
@@ -266,11 +191,12 @@ const Page = () => {
                       <select
                         id="service"
                         name="service"
-                        value={formData.service}
-                        onChange={handleChange}
                         className="w-full rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-green-600"
+                        defaultValue=""
                       >
-                        <option value="">Select a service</option>
+                        <option value="" disabled>
+                          Select a service
+                        </option>
                         <option value="wheel-repair">Wheel Repair</option>
                         <option value="refurbishment">Full Refurbishment</option>
                         <option value="mobile-service">Mobile Service</option>
@@ -291,8 +217,7 @@ const Page = () => {
                           type="radio"
                           name="preferredContact"
                           value="email"
-                          checked={formData.preferredContact === 'email'}
-                          onChange={handleChange}
+                          defaultChecked
                           className="text-green-600 focus:ring-green-600"
                         />
                         <span className="text-gray-700">Email</span>
@@ -302,8 +227,6 @@ const Page = () => {
                           type="radio"
                           name="preferredContact"
                           value="phone"
-                          checked={formData.preferredContact === 'phone'}
-                          onChange={handleChange}
                           className="text-green-600 focus:ring-green-600"
                         />
                         <span className="text-gray-700">Phone</span>
@@ -320,35 +243,29 @@ const Page = () => {
                       id="message"
                       name="message"
                       rows={5}
-                      value={formData.message}
-                      onChange={handleChange}
                       className="w-full resize-none rounded-lg border border-gray-300 px-4 py-3 focus:border-transparent focus:ring-2 focus:ring-green-600"
                       placeholder="Please describe your wheel damage or requirements..."
                     />
+                    <ValidationError prefix="Message" field="message" errors={state.errors} />
                   </div>
+
+                  {/* Optional honeypot for spam */}
+                  <input type="text" name="_gotcha" className="hidden" aria-hidden="true" tabIndex={-1} />
 
                   {/* Actions */}
                   <div className="flex flex-col sm:flex-row gap-4">
                     <button
                       type="submit"
-                      className={`flex-1 inline-flex items-center justify-center rounded-lg px-8 py-4 font-semibold transition-colors text-white ${
-                        loading ? 'cursor-wait' : 'cursor-pointer'
-                      } bg-green-600 hover:bg-green-700 disabled:opacity-60 disabled:cursor-not-allowed`}
-                      disabled={loading}
-                      aria-busy={loading}
+                      disabled={state.submitting}
+                      className="flex-1 inline-flex items-center justify-center rounded-lg px-8 py-4 font-semibold transition-colors text-white bg-green-600 hover:bg-green-700 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       <Send className="mr-2 h-5 w-5" />
-                      {loading ? 'Sending…' : 'Send Free Quote Request'}
-                    </button>
-
-                    <button
-                      type="button"
-                      className="inline-flex items-center justify-center rounded-lg border-2 border-green-600 px-8 py-4 font-semibold text-green-700 hover:bg-green-600 hover:text-white transition-colors cursor-pointer"
-                    >
-                      <MessageSquare className="mr-2 h-5 w-5" />
-                      Live Chat
+                      {state.submitting ? 'Sending…' : 'Send Free Quote Request'}
                     </button>
                   </div>
+
+                  {/* Global errors (if any) */}
+                  <ValidationError errors={state.errors} className="text-sm text-red-600" />
 
                   {/* Privacy */}
                   <p className="text-xs text-gray-500">
@@ -360,31 +277,6 @@ const Page = () => {
             </div>
           </div>
 
-          {/* Service Areas */}
-          <div className="mt-12 rounded-2xl bg-white shadow-lg ring-1 ring-gray-100 p-8">
-            <h3 className="text-2xl font-bold text-center mb-8">Service Areas</h3>
-            <div className="grid md:grid-cols-4 gap-6 text-center">
-              <div>
-                <h4 className="font-semibold text-green-600 mb-1">Sheffield</h4>
-                <p className="text-sm text-gray-700">City Centre, Hillsborough, Meadowhall, Chapeltown</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-green-600 mb-1">Rotherham</h4>
-                <p className="text-sm text-gray-700">Town Centre, Rawmarsh, Wickersley, Wath</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-green-600 mb-1">Doncaster</h4>
-                <p className="text-sm text-gray-700">Town Centre, Bentley, Rossington, Armthorpe</p>
-              </div>
-              <div>
-                <h4 className="font-semibold text-green-600 mb-1">Barnsley</h4>
-                <p className="text-sm text-gray-700">Town Centre, Penistone, Hoyland, Royston</p>
-              </div>
-            </div>
-            <p className="mt-6 text-center text-gray-700">
-              Plus surrounding areas within 30 miles of Sheffield. Call to check if we cover your location.
-            </p>
-          </div>
         </div>
       </section>
     </main>

@@ -9,8 +9,8 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react";
 interface GalleryItem {
   id: number;
   category: "repair" | "refurbishment" | "mobile";
-  title: string;
-  description: string;
+  title: string;        // kept in the type/data, but not displayed
+  description: string;  // kept in the type/data, but not displayed
   beforeImage: string;
   afterImage: string;
 }
@@ -21,51 +21,27 @@ const PLACEHOLDER = "/images/services/pexels-introspectivedsgn-30474840.jpg";
 const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: 1,
-    category: "repair",
-    title: "BMW Kerb Damage Repair",
+    category: "mobile",
+    title: "Audi",
     description: "Severe kerb damage completely restored to original finish",
     beforeImage: "/images/alloys/alloy1before.jpeg",
     afterImage: "/images/alloys/alloy1after.jpeg",
   },
   {
     id: 2,
-    category: "refurbishment",
-    title: "Mercedes Diamond Cut Refurbishment",
+    category: "mobile",
+    title: "Skoda",
     description: "Complete wheel refurbishment with diamond cut finish",
     beforeImage: "/images/alloys/alloy2before.jpeg",
     afterImage: "/images/alloys/alloy2after.jpeg",
   },
   {
     id: 3,
-    category: "repair",
+    category: "mobile",
     title: "Audi Crack Welding",
     description: "Professional crack welding and refinishing service",
     beforeImage: "/images/alloys/alloy3before.jpeg",
     afterImage: "/images/alloys/alloy3after.jpeg",
-  },
-  {
-    id: 4,
-    category: "refurbishment",
-    title: "Range Rover Custom Finish",
-    description: "Bespoke matte black powder coat finish",
-    beforeImage: PLACEHOLDER,
-    afterImage: PLACEHOLDER,
-  },
-  {
-    id: 5,
-    category: "mobile",
-    title: "Mobile Service - VW Golf",
-    description: "On-site wheel repair at customer location",
-    beforeImage: PLACEHOLDER,
-    afterImage: PLACEHOLDER,
-  },
-  {
-    id: 6,
-    category: "refurbishment",
-    title: "Porsche Performance Wheels",
-    description: "High-end performance wheel restoration",
-    beforeImage: PLACEHOLDER,
-    afterImage: PLACEHOLDER,
   },
 ];
 
@@ -165,7 +141,7 @@ export default function GalleryPage() {
                       <div className="absolute inset-0">
                         <Image
                           src={item.beforeImage}
-                          alt={`${item.title} - Before`}
+                          alt="Wheel before repair/refurbishment"
                           fill
                           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 33vw"
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -180,7 +156,7 @@ export default function GalleryPage() {
                       <div className="absolute inset-0">
                         <Image
                           src={item.afterImage}
-                          alt={`${item.title} - After`}
+                          alt="Wheel after repair/refurbishment"
                           fill
                           sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 33vw"
                           className="object-cover group-hover:scale-105 transition-transform duration-300"
@@ -199,7 +175,7 @@ export default function GalleryPage() {
                     </span>
                   </div>
 
-                  {/* Category Badge */}
+                  {/* Category Badge (kept) */}
                   <div className="absolute top-4 left-4">
                     <span
                       className={`px-3 py-1 text-xs font-semibold rounded-full ${
@@ -215,11 +191,11 @@ export default function GalleryPage() {
                   </div>
                 </div>
 
-                {/* Card content */}
-                <div className="p-6">
+                {/* Card content — removed title/description */}
+                {/* <div className="p-6">
                   <h3 className="font-bold text-lg text-gray-900 mb-2">{item.title}</h3>
                   <p className="text-gray-600">{item.description}</p>
-                </div>
+                </div> */}
               </article>
             ))}
           </div>
@@ -232,11 +208,11 @@ export default function GalleryPage() {
           className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4"
           role="dialog"
           aria-modal="true"
-          aria-label={`${selectedItem.title} details`}
+          aria-label="Gallery item details"
         >
           <div className="bg-white rounded-2xl max-w-4xl w-full max-h-screen overflow-y-auto">
             <div className="flex justify-between items-center p-6 border-b">
-              <h3 className="text-2xl font-bold text-gray-900">{selectedItem.title}</h3>
+              {/* Removed modal title */}
               <div className="flex items-center space-x-2">
                 <button onClick={goPrev} className="p-2 hover:bg-gray-100 rounded-full" aria-label="Previous item">
                   <ChevronLeft className="w-6 h-6" />
@@ -257,7 +233,7 @@ export default function GalleryPage() {
                   <div className="relative w-full aspect-[4/3]">
                     <Image
                       src={selectedItem.beforeImage}
-                      alt={`${selectedItem.title} before`}
+                      alt="Before"
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover rounded-xl shadow-lg"
@@ -269,7 +245,7 @@ export default function GalleryPage() {
                   <div className="relative w-full aspect-[4/3]">
                     <Image
                       src={selectedItem.afterImage}
-                      alt={`${selectedItem.title} after`}
+                      alt="After"
                       fill
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover rounded-xl shadow-lg"
@@ -278,11 +254,12 @@ export default function GalleryPage() {
                 </div>
               </div>
 
-              <p className="text-gray-700 mb-6">{selectedItem.description}</p>
+              {/* Removed modal description */}
+              {/* <p className="text-gray-700 mb-6">{selectedItem.description}</p> */}
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  href="/quote"
+                  href="/services"
                   className="flex-1 bg-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-green-700 text-center"
                 >
                   Get Similar Service
