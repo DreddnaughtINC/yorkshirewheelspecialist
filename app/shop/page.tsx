@@ -236,23 +236,35 @@ export default function ProductPage() {
 
               <h1 className="text-3xl font-bold text-gray-900 mb-4">{product.name}</h1>
 
-              <div className="flex items-center space-x-4 mb-6">
-                {product.price ? (
-                  <>
-                    <span className="text-4xl font-bold text-green-600">£{product.price}</span>
-                    {product.originalPrice ? (
-                      <>
-                        <span className="text-xl text-gray-500 line-through">£{product.originalPrice}</span>
-                        <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-semibold">
-                          Save £{(product.originalPrice - product.price).toFixed(0)}
-                        </span>
-                      </>
-                    ) : null}
-                  </>
-                ) : (
-                  <span className="text-2xl font-semibold text-gray-800">Price on request (best direct pricing)</span>
-                )}
-              </div>
+              <div className="flex items-center flex-wrap gap-3 mb-6">
+              {typeof product.price === 'number' ? (
+                <>
+                  <span className="text-4xl font-bold text-green-600">£{product.price}</span>
+
+                  {/* or Best Offer pill */}
+                  <span
+                    className="inline-flex items-center rounded-full bg-emerald-600/10 text-emerald-700 px-3 py-1 text-xs font-semibold ring-1 ring-emerald-600/20"
+                    aria-label="or best offer"
+                  >
+                    or Best Offer
+                  </span>
+
+                  {product.originalPrice ? (
+                    <>
+                      <span className="text-xl text-gray-500 line-through">£{product.originalPrice}</span>
+                      <span className="bg-red-100 text-red-600 px-3 py-1 rounded-full text-sm font-semibold">
+                        Save £{(product.originalPrice - product.price).toFixed(0)}
+                      </span>
+                    </>
+                  ) : null}
+                </>
+              ) : (
+                <span className="text-2xl font-semibold text-gray-800">
+                  Price on request <span className="text-gray-500">— or Best Offer</span>
+                </span>
+              )}
+            </div>
+
             </div>
 
             {/* Stock Status */}
@@ -295,7 +307,7 @@ export default function ProductPage() {
                 className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 font-semibold bg-emerald-600 text-white hover:bg-emerald-700 transition"
               >
                 <MessageSquare className="w-5 h-5" />
-                WhatsApp for best price
+                WhatsApp
               </a>
               <a
                 href={telHref}
@@ -311,7 +323,60 @@ export default function ProductPage() {
                 <Mail className="w-5 h-5" />
                 Email {email}
               </a>
+              {/* Tiny link that opens the dropdown */}
+<p className="mt-1 text-xs text-gray-500">
+  By contacting us you agree to our{" "}
+  <a
+    href="#returns"
+    onClick={(e) => {
+      e.preventDefault();
+      const el = document.getElementById('returns-drop');
+      if (el && 'open' in el) (el as HTMLDetailsElement).open = true;
+      el?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }}
+    className="underline decoration-dotted"
+  >
+    returns policy
+  </a>.
+</p>
+
+{/* Returns & Cancellations (dropdown) */}
+<details id="returns-drop" className="mt-4 rounded-xl bg-white/50 p-4 ring-1 ring-gray-200 open:shadow-inner">
+  <summary className="cursor-pointer select-none text-sm font-semibold flex items-center justify-between text-gray-900">
+    Returns & Cancellations
+    <span className="ml-3 inline-block text-xs text-gray-500">(tap to expand)</span>
+  </summary>
+  <div className="mt-3 space-y-3 text-sm text-gray-700 leading-relaxed">
+    <p>
+      <strong>Change-of-mind (distance sales only):</strong> For consumer purchases arranged by phone/email or online
+      with delivery, you may cancel within <strong>14 days</strong> of delivery. Items must be returned in the condition
+      supplied. Return shipping (pallet) is at the buyer’s cost unless agreed otherwise. We’ll refund within 14 days of
+      receiving the goods back and may deduct for any use beyond inspection.
+    </p>
+    <p>
+      <strong>On-premises purchases/collections:</strong> No change-of-mind returns, but your statutory rights for
+      faulty goods still apply.
+    </p>
+    <p>
+      <strong>Faulty or not-as-described:</strong> Contact us within <strong>30 days</strong> of delivery/collection.
+      We’ll arrange a repair, replacement or refund as required by law.
+    </p>
+    <p>
+      <strong>Exclusions:</strong> Custom refinishing/personalised work is non-returnable unless faulty.
+    </p>
+    <p>
+      <strong>How to return:</strong> Email{" "}
+      <a href="mailto:joe@yorkshirewheelspecialist.co.uk" className="underline decoration-dotted">
+        joe@yorkshirewheelspecialist.co.uk
+      </a>{" "}
+      with your order details and photos; we can book pallet collection at cost.
+    </p>
+  </div>
+</details>
+
             </div>
+
+            
 
             {/* Delivery Options */}
             <div className="pt-6 border-t">
