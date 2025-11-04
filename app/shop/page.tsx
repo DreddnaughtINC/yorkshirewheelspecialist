@@ -155,78 +155,94 @@ export default function ProductPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Product Images */}
-          <div className="space-y-3 sm:space-y-4 min-w-0">
-            {/* Main Image (guard overflow) */}
-            <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden aspect-[4/3] w-full max-w-full">
-            <Image
-              src={product.images[selectedImage]}
-              alt={product.name}
-              fill
-              className="object-cover"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
-              priority
-            />
+          {/* Product Images (single, mobile-safe gallery) */}
+<div className="space-y-3 min-w-0">
+  {/* Badge sits outside the image so it can’t overlap the thumbnails */}
+  <div className="inline-flex">
+    <span
+      className={`px-3 py-1 text-xs font-semibold rounded-full ${
+        product.category === 'premium'
+          ? 'bg-yellow-500 text-black'
+          : product.category === 'new'
+          ? 'bg-green-600 text-white'
+          : product.category === 'refurbished'
+          ? 'bg-yellow-500 text-black'
+          : 'bg-blue-600 text-white'
+      }`}
+    >
+      {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
+    </span>
+  </div>
 
-              {product.images.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto pb-1 px-1 sm:px-0 max-w-full">
-                {product.images.map((image, index) => (
-                  <button
-                    key={image}
-                    onClick={() => setSelectedImage(index)}
-                    className={`relative min-w-[72px] w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-                      selectedImage === index ? 'border-green-600' : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                    aria-label={`Show image ${index + 1}`}
-                  >
-                    <Image src={image} alt={`${product.name} ${index + 1}`} fill className="object-cover" sizes="76px" />
-                  </button>
-                ))}
-              </div>
-            )}
+  {/* Main image — fully clipped, cannot bleed horizontally */}
+  <div className="relative w-full aspect-[4/3] rounded-2xl bg-white shadow-lg overflow-hidden">
+    <Image
+      src={product.images[selectedImage]}
+      alt={product.name}
+      fill
+      className="object-cover"
+      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
+      priority
+    />
 
+    {/* Prev / Next controls are layered above the image only */}
+    {product.images.length > 1 && (
+      <>
+        <button
+          onClick={() =>
+            setSelectedImage((prev) =>
+              prev > 0 ? prev - 1 : product.images.length - 1
+            )
+          }
+          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full hover:bg-white shadow"
+          aria-label="Previous image"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+        <button
+          onClick={() =>
+            setSelectedImage((prev) =>
+              prev < product.images.length - 1 ? prev + 1 : 0
+            )
+          }
+          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full hover:bg-white shadow"
+          aria-label="Next image"
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
+      </>
+    )}
+  </div>
 
-              <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
-                <span
-                  className={`px-2.5 py-1 text-[10px] sm:text-xs font-semibold rounded-full ${
-                    product.category === 'premium'
-                      ? 'bg-yellow-500 text-black'
-                      : product.category === 'new'
-                      ? 'bg-green-600 text-white'
-                      : product.category === 'refurbished'
-                      ? 'bg-yellow-500 text-black'
-                      : 'bg-blue-600 text-white'
-                  }`}
-                >
-                  {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
-                </span>
-              </div>
-            </div>
-
-            {/* Thumbnails — keep inside container */}
-            {product.images.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto pb-1 px-1 sm:px-0 snap-x snap-mandatory max-w-full">
-                {product.images.map((image: string, index: number) => (
-                  <button
-                    key={image}
-                    onClick={() => setSelectedImage(index)}
-                    className={`relative min-w-[72px] w-20 h-20 rounded-lg overflow-hidden border-2 transition-all snap-start ${
-                      selectedImage === index ? 'border-green-600' : 'border-gray-200 hover:border-gray-300'
-                    }`}
-                    aria-label={`Show image ${index + 1}`}
-                  >
-                    <Image
-                      src={image}
-                      alt={`${product.name} ${index + 1}`}
-                      fill
-                      className="object-cover"
-                      sizes="76px"
-                      loading={index === 0 ? 'eager' : 'lazy'}
-                    />
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
+  {/* Thumbnails — exactly one strip, scrollable inside container */}
+  {product.images.length > 1 && (
+    <div
+      className="flex gap-2 overflow-x-auto max-w-full px-1 py-1"
+      role="tablist"
+      aria-label="More photos"
+    >
+      {product.images.map((image, index) => (
+        <button
+          key={image}
+          onClick={() => setSelectedImage(index)}
+          className={`relative min-w-[72px] w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+            selectedImage === index
+              ? 'border-green-600'
+              : 'border-gray-200 hover:border-gray-300'
+          }`}
+          aria-label={`Show image ${index + 1}`}
+        >
+          <Image
+            src={image}
+            alt={`${product.name} ${index + 1}`}
+            fill
+            className="object-cover"
+            sizes="80px"
+          />
+        </button>
+      ))}
+    </div>
+  )}
 
           {/* Product Info */}
           <div className="space-y-5 sm:space-y-6 min-w-0">
