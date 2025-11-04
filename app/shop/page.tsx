@@ -1,19 +1,9 @@
-// app/shop/page.tsx
 'use client';
 
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import {
-  Truck,
-  RotateCcw,
-  ChevronLeft,
-  ChevronRight,
-  Check,
-  Phone,
-  Mail,
-  MessageSquare,
-} from 'lucide-react';
+import { Truck, RotateCcw, ChevronLeft, ChevronRight, Check, Phone, Mail, MessageSquare } from 'lucide-react';
 
 type Product = {
   id: number;
@@ -115,9 +105,7 @@ export default function ProductPage() {
 
   useEffect(() => {
     document.documentElement.style.setProperty('--safe-bottom', 'env(safe-area-inset-bottom, 0px)');
-    return () => {
-      document.documentElement.style.removeProperty('--safe-bottom');
-    };
+    return () => { document.documentElement.style.removeProperty('--safe-bottom'); };
   }, []);
 
   const enc = (s: string) => encodeURIComponent(s);
@@ -136,138 +124,116 @@ export default function ProductPage() {
   const waHref = `https://wa.me/${phone.replace(/[^\d]/g, '')}?text=${enc(`${subject}\n\n${body}`)}`;
 
   return (
-    <div className="min-h-screen bg-neutral-50 overflow-x-hidden">
+    <div className="min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 overflow-x-hidden">
       {/* Breadcrumb */}
-      <div className="bg-white border-b">
+      <div className="bg-white border-b border-neutral-200 dark:bg-neutral-900 dark:border-neutral-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
-            <Link href="/" className="text-gray-500 hover:text-green-600">Home</Link>
-            <span className="text-gray-400">/</span>
-            <Link href="/shop" className="text-gray-500 hover:text-green-600">Shop</Link>
-            <span className="text-gray-400">/</span>
-            <span className="text-gray-900 break-words">
-              {product.name}
-            </span>
+            <Link href="/" className="text-neutral-500 hover:text-emerald-600 dark:text-neutral-400">Home</Link>
+            <span className="text-neutral-400">/</span>
+            <Link href="/shop" className="text-neutral-500 hover:text-emerald-600 dark:text-neutral-400">Shop</Link>
+            <span className="text-neutral-400">/</span>
+            <span className="text-neutral-900 dark:text-neutral-100 break-words">{product.name}</span>
           </nav>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-          {/* Product Images */}
-          {/* Product Images (single, mobile-safe gallery) */}
-<div className="space-y-3 min-w-0">
-  {/* Badge sits outside the image so it can’t overlap the thumbnails */}
-  <div className="inline-flex">
-    <span
-      className={`px-3 py-1 text-xs font-semibold rounded-full ${
-        product.category === 'premium'
-          ? 'bg-yellow-500 text-black'
-          : product.category === 'new'
-          ? 'bg-green-600 text-white'
-          : product.category === 'refurbished'
-          ? 'bg-yellow-500 text-black'
-          : 'bg-blue-600 text-white'
-      }`}
-    >
-      {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
-    </span>
-  </div>
+          {/* Gallery */}
+          <div className="space-y-3 min-w-0">
+            <div className="inline-flex">
+              <span
+                className={`px-3 py-1 text-xs font-semibold rounded-full ${
+                  product.category === 'premium'
+                    ? 'bg-yellow-500 text-black'
+                    : product.category === 'new'
+                    ? 'bg-emerald-600 text-white'
+                    : product.category === 'refurbished'
+                    ? 'bg-yellow-500 text-black'
+                    : 'bg-blue-600 text-white'
+                }`}
+              >
+                {product.category.charAt(0).toUpperCase() + product.category.slice(1)}
+              </span>
+            </div>
 
-  {/* Main image — fully clipped, cannot bleed horizontally */}
-  <div className="relative w-full aspect-[4/3] rounded-2xl bg-white shadow-lg overflow-hidden">
-    <Image
-      src={product.images[selectedImage]}
-      alt={product.name}
-      fill
-      className="object-cover"
-      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
-      priority
-    />
+            <div className="relative w-full aspect-[4/3] rounded-2xl bg-white dark:bg-neutral-900 shadow-lg overflow-hidden">
+              <Image
+                src={product.images[selectedImage]}
+                alt={product.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
+                priority
+              />
 
-    {/* Prev / Next controls are layered above the image only */}
-    {product.images.length > 1 && (
-      <>
-        <button
-          onClick={() =>
-            setSelectedImage((prev) =>
-              prev > 0 ? prev - 1 : product.images.length - 1
-            )
-          }
-          className="absolute left-3 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full hover:bg-white shadow"
-          aria-label="Previous image"
-        >
-          <ChevronLeft className="w-5 h-5" />
-        </button>
-        <button
-          onClick={() =>
-            setSelectedImage((prev) =>
-              prev < product.images.length - 1 ? prev + 1 : 0
-            )
-          }
-          className="absolute right-3 top-1/2 -translate-y-1/2 z-10 bg-white/90 p-2 rounded-full hover:bg-white shadow"
-          aria-label="Next image"
-        >
-          <ChevronRight className="w-5 h-5" />
-        </button>
-      </>
-    )}
-  </div>
+              {product.images.length > 1 && (
+                <>
+                  <button
+                    onClick={() => setSelectedImage((p) => (p > 0 ? p - 1 : product.images.length - 1))}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 z-10 rounded-full p-2 bg-white/90 hover:bg-white dark:bg-neutral-800/70 dark:hover:bg-neutral-800 shadow text-neutral-900 dark:text-neutral-100"
+                    aria-label="Previous image"
+                  >
+                    <ChevronLeft className="w-5 h-5" />
+                  </button>
+                  <button
+                    onClick={() => setSelectedImage((p) => (p < product.images.length - 1 ? p + 1 : 0))}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 z-10 rounded-full p-2 bg-white/90 hover:bg-white dark:bg-neutral-800/70 dark:hover:bg-neutral-800 shadow text-neutral-900 dark:text-neutral-100"
+                    aria-label="Next image"
+                  >
+                    <ChevronRight className="w-5 h-5" />
+                  </button>
+                </>
+              )}
+            </div>
 
-  {/* Thumbnails — exactly one strip, scrollable inside container */}
-  {product.images.length > 1 && (
-    <div
-      className="flex gap-2 overflow-x-auto max-w-full px-1 py-1"
-      role="tablist"
-      aria-label="More photos"
-    >
-      {product.images.map((image, index) => (
-        <button
-          key={image}
-          onClick={() => setSelectedImage(index)}
-          className={`relative min-w-[72px] w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
-            selectedImage === index
-              ? 'border-green-600'
-              : 'border-gray-200 hover:border-gray-300'
-          }`}
-          aria-label={`Show image ${index + 1}`}
-        >
-          <Image
-            src={image}
-            alt={`${product.name} ${index + 1}`}
-            fill
-            className="object-cover"
-            sizes="80px"
-          />
-        </button>
-      ))}
-    </div>
-  )}
+            {product.images.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto max-w-full px-1 py-1" role="tablist" aria-label="More photos">
+                {product.images.map((image, index) => (
+                  <button
+                    key={image}
+                    onClick={() => setSelectedImage(index)}
+                    className={`relative min-w-[72px] w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                      selectedImage === index
+                        ? 'border-emerald-600'
+                        : 'border-neutral-200 hover:border-neutral-300 dark:border-neutral-700 dark:hover:border-neutral-600'
+                    }`}
+                    aria-label={`Show image ${index + 1}`}
+                  >
+                    <Image src={image} alt={`${product.name} ${index + 1}`} fill className="object-cover" sizes="80px" />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
 
-          {/* Product Info */}
+          {/* Info */}
           <div className="space-y-5 sm:space-y-6 min-w-0">
             <div>
               <div className="flex items-center justify-between mb-1.5 sm:mb-2">
-                <span className="text-green-700 text-sm sm:text-base font-medium">{product.brand}</span>
+                <span className="text-emerald-700 dark:text-emerald-400 text-sm sm:text-base font-medium">
+                  {product.brand}
+                </span>
               </div>
 
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 mb-3 sm:mb-4">
+              <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-neutral-900 dark:text-neutral-100 mb-3 sm:mb-4">
                 {product.name}
               </h1>
 
               <div className="flex items-center flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-6">
                 {typeof product.price === 'number' ? (
                   <>
-                    <span className="text-3xl sm:text-4xl font-extrabold text-green-700">
+                    <span className="text-3xl sm:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400">
                       £{product.price}
                     </span>
-                    <span className="inline-flex items-center rounded-full bg-emerald-600/10 text-emerald-700 px-2.5 py-1 text-[11px] sm:text-xs font-semibold ring-1 ring-emerald-600/20">
+                    <span className="inline-flex items-center rounded-full bg-emerald-600/10 dark:bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 px-2.5 py-1 text-[11px] sm:text-xs font-semibold ring-1 ring-emerald-600/20 dark:ring-emerald-500/30">
                       or Best Offer
                     </span>
                   </>
                 ) : (
-                  <span className="text-xl sm:text-2xl font-semibold text-gray-900">
-                    Price on request <span className="text-gray-500">— or Best Offer</span>
+                  <span className="text-xl sm:text-2xl font-semibold text-neutral-900 dark:text-neutral-100">
+                    Price on request <span className="text-neutral-500 dark:text-neutral-400">— or Best Offer</span>
                   </span>
                 )}
               </div>
@@ -276,19 +242,19 @@ export default function ProductPage() {
             <div className="flex items-center gap-2">
               {product.inStock ? (
                 <>
-                  <Check className="w-5 h-5 text-green-700" />
-                  <span className="text-green-700 text-sm sm:text-base font-medium">
+                  <Check className="w-5 h-5 text-emerald-700 dark:text-emerald-400" />
+                  <span className="text-emerald-700 dark:text-emerald-400 text-sm sm:text-base font-medium">
                     In Stock ({product.stockCount} set available)
                   </span>
                 </>
               ) : (
-                <span className="text-red-600 font-medium">Out of Stock</span>
+                <span className="text-red-600 dark:text-red-400 font-medium">Out of Stock</span>
               )}
             </div>
 
             <div>
               <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3">Description</h3>
-              <p className="text-gray-700 leading-relaxed break-words">
+              <p className="text-neutral-700 dark:text-neutral-300 leading-relaxed break-words">
                 {product.description}
               </p>
             </div>
@@ -298,8 +264,8 @@ export default function ProductPage() {
               <ul className="space-y-1.5 sm:space-y-2">
                 {product.features.map((feature: string) => (
                   <li key={feature} className="flex items-center gap-2">
-                    <Check className="w-4 h-4 text-green-700" />
-                    <span className="text-gray-700 text-sm sm:text-base">{feature}</span>
+                    <Check className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
+                    <span className="text-neutral-700 dark:text-neutral-300 text-sm sm:text-base">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -309,7 +275,7 @@ export default function ProductPage() {
             <div className="hidden sm:block space-y-3">
               <a
                 href={telHref}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-4 font-semibold bg-gray-900 text-white hover:bg-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-4 font-semibold bg-neutral-900 text-white hover:bg-black dark:bg-neutral-800 dark:hover:bg-neutral-700 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
               >
                 <Phone className="w-5 h-5" />
                 Call {formatPhone(phone)}
@@ -322,8 +288,7 @@ export default function ProductPage() {
                 Email {email}
               </a>
 
-              {/* Returns link + dropdown (unchanged) */}
-              <p className="mt-1 text-sm text-gray-500">
+              <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">
                 By contacting us you agree to our{' '}
                 <a
                   href="#returns"
@@ -339,12 +304,15 @@ export default function ProductPage() {
                 </a>.
               </p>
 
-              <details id="returns-drop" className="mt-4 rounded-xl bg-white/70 p-4 ring-1 ring-gray-200 open:shadow-inner">
-                <summary className="cursor-pointer select-none text-sm font-semibold flex items-center justify-between text-gray-900">
+              <details
+                id="returns-drop"
+                className="mt-4 rounded-xl bg-white/70 dark:bg-neutral-800/70 p-4 ring-1 ring-neutral-200 dark:ring-neutral-700 open:shadow-inner"
+              >
+                <summary className="cursor-pointer select-none text-sm font-semibold flex items-center justify-between text-neutral-900 dark:text-neutral-100">
                   Returns & Cancellations
-                  <span className="ml-3 inline-block text-xs text-gray-500">(tap to expand)</span>
+                  <span className="ml-3 inline-block text-xs text-neutral-500 dark:text-neutral-400">(tap to expand)</span>
                 </summary>
-                <div className="mt-3 space-y-3 text-sm sm:text-base text-gray-700 leading-relaxed">
+                <div className="mt-3 space-y-3 text-sm sm:text-base text-neutral-700 dark:text-neutral-300 leading-relaxed">
                   <p>
                     <strong>Change-of-mind (distance sales only):</strong> For consumer purchases arranged by
                     phone/email or online with delivery, you may cancel within <strong>14 days</strong> of delivery.
@@ -371,47 +339,47 @@ export default function ProductPage() {
             </div>
 
             {/* Delivery */}
-            <div className="pt-5 sm:pt-6 border-t">
+            <div className="pt-5 sm:pt-6 border-t border-neutral-200 dark:border-neutral-800">
               <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3">Delivery Options</h3>
               <ul className="space-y-1.5 sm:space-y-2">
                 {product.deliveryOptions.map((option: string) => (
                   <li key={option} className="flex items-center gap-2 text-sm sm:text-base">
-                    <Check className="w-4 h-4 text-green-700" />
-                    <span className="text-gray-700">{option}</span>
+                    <Check className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
+                    <span className="text-neutral-700 dark:text-neutral-300">{option}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Guarantees */}
-            <div className="grid grid-cols-2 gap-4 pt-5 sm:pt-6 border-t">
+            <div className="grid grid-cols-2 gap-4 pt-5 sm:pt-6 border-t border-neutral-200 dark:border-neutral-800">
               <div className="text-center">
-                <Truck className="w-7 h-7 sm:w-8 sm:h-8 text-green-700 mx-auto mb-1.5 sm:mb-2" />
+                <Truck className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-700 dark:text-emerald-400 mx-auto mb-1.5 sm:mb-2" />
                 <div className="font-medium text-sm">Delivery</div>
-                <div className="text-xs text-gray-600">{product.delivery}</div>
+                <div className="text-xs text-neutral-600 dark:text-neutral-400">{product.delivery}</div>
               </div>
               <div className="text-center">
-                <RotateCcw className="w-7 h-7 sm:w-8 sm:h-8 text-green-700 mx-auto mb-1.5 sm:mb-2" />
+                <RotateCcw className="w-7 h-7 sm:w-8 sm:h-8 text-emerald-700 dark:text-emerald-400 mx-auto mb-1.5 sm:mb-2" />
                 <div className="font-medium text-sm">Returns</div>
-                <div className="text-xs text-gray-600">{product.returns}</div>
+                <div className="text-xs text-neutral-600 dark:text-neutral-400">{product.returns}</div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Product Details Panels */}
+        {/* Details panels */}
         <div className="mt-12 sm:mt-16">
-          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
+          <div className="bg-white dark:bg-neutral-900 rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 p-6 sm:p-8">
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Specifications</h3>
                 <div className="space-y-3 sm:space-y-4">
                   {Object.entries(product.specs).map(([key, value]) => (
-                    <div key={key} className="flex justify-between gap-4 py-2 border-b border-gray-100">
+                    <div key={key} className="flex justify-between gap-4 py-2 border-b border-neutral-100 dark:border-neutral-800">
                       <span className="font-medium capitalize text-sm sm:text-base">
                         {key.replace(/([A-Z])/g, ' $1')}
                       </span>
-                      <span className="text-gray-700 text-sm sm:text-base">{value}</span>
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm sm:text-base">{value}</span>
                     </div>
                   ))}
                 </div>
@@ -422,13 +390,13 @@ export default function ProductPage() {
                 <div className="space-y-1.5 sm:space-y-2">
                   {product.compatibility.map((vehicle: string) => (
                     <div key={vehicle} className="flex items-center gap-2 py-1">
-                      <Check className="w-4 h-4 text-green-700" />
-                      <span className="text-gray-700 text-sm sm:text-base">{vehicle}</span>
+                      <Check className="w-4 h-4 text-emerald-700 dark:text-emerald-400" />
+                      <span className="text-neutral-700 dark:text-neutral-300 text-sm sm:text-base">{vehicle}</span>
                     </div>
                   ))}
                 </div>
-                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-green-50 border border-green-200 rounded-lg">
-                  <p className="text-xs sm:text-sm text-green-800">
+                <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800 rounded-lg">
+                  <p className="text-xs sm:text-sm text-emerald-800 dark:text-emerald-200">
                     <strong>Direct Bolt-On:</strong> These wheels are a perfect direct fit for all W463 G-Wagon models.
                     Gives you the authentic AMG G63 look without the dealer premium.
                   </p>
@@ -436,13 +404,13 @@ export default function ProductPage() {
               </div>
             </div>
 
-            <div className="p-6 sm:p-8 border-t">
+            <div className="p-6 sm:p-8 border-t border-neutral-100 dark:border-neutral-800">
               <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Condition</h3>
               <ul className="grid md:grid-cols-2 gap-3 sm:gap-4">
                 {product.condition.map((item: string) => (
                   <li key={item} className="flex items-start gap-2">
-                    <Check className="w-5 h-5 text-green-700 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700 text-sm sm:text-base">{item}</span>
+                    <Check className="w-5 h-5 text-emerald-700 dark:text-emerald-400 mt-0.5 flex-shrink-0" />
+                    <span className="text-neutral-700 dark:text-neutral-300 text-sm sm:text-base">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -452,7 +420,7 @@ export default function ProductPage() {
 
         {/* Back link */}
         <div className="mt-8">
-          <Link href="/" className="text-green-700 hover:text-green-800 underline underline-offset-4">
+          <Link href="/" className="text-emerald-700 dark:text-emerald-400 hover:underline underline-offset-4">
             ← Back to home
           </Link>
         </div>
@@ -460,7 +428,7 @@ export default function ProductPage() {
 
       {/* Sticky Mobile CTA */}
       <div
-        className="sm:hidden fixed inset-x-0 bottom-0 z-40 border-t border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70"
+        className="sm:hidden fixed inset-x-0 bottom-0 z-40 border-t border-neutral-200 dark:border-neutral-800 bg-white/95 dark:bg-neutral-900/90 backdrop-blur supports-[backdrop-filter]:bg-white/70 supports-[backdrop-filter]:dark:bg-neutral-900/70"
         style={{ paddingBottom: 'var(--safe-bottom)' as React.CSSProperties['paddingBottom'] }}
         role="group"
         aria-label="Quick actions"
@@ -469,7 +437,7 @@ export default function ProductPage() {
           <div className="grid grid-cols-2 gap-2">
             <a
               href={telHref}
-              className="inline-flex items-center justify-center gap-2 rounded-lg px-3 py-3 font-semibold bg-gray-900 text-white hover:bg-black focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+              className="inline-flex items-center justify-center gap-2 rounded-lg px-3 py-3 font-semibold bg-neutral-900 text-white hover:bg-black dark:bg-neutral-800 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
             >
               <Phone className="w-5 h-5" />
               <span>Call</span>
@@ -478,7 +446,6 @@ export default function ProductPage() {
         </div>
       </div>
     </div>
-  </div>
   );
 }
 
