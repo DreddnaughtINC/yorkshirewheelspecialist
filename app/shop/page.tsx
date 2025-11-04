@@ -80,7 +80,7 @@ const product: Product = {
   features: [
     'No cracks, welds or structural damage',
     'Wheels run true',
-    'Good usable tread on all tyres',
+    '7mm tread on all tyres',
     'Satin black finish with machined edge detail',
     'Direct bolt-on upgrade',
     'Michelin Latitude Sport premium tyres',
@@ -322,16 +322,6 @@ export default function ProductPage() {
             {/* Contact to Buy */}
             <div className="hidden sm:block space-y-3">
               <a
-                href={waHref}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-4 font-semibold bg-emerald-600 text-white hover:bg-emerald-700 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
-                aria-label="Contact via WhatsApp"
-              >
-                <MessageSquare className="w-5 h-5" />
-                WhatsApp
-              </a>
-              <a
                 href={telHref}
                 className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-4 font-semibold bg-gray-900 text-white hover:bg-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
                 aria-label={`Call ${formatPhone(phone)}`}
@@ -504,14 +494,12 @@ export default function ProductPage() {
         <div className="mx-auto max-w-7xl px-4 py-2">
           <div className="grid grid-cols-2 gap-2">
             <a
-              href={waHref}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-lg px-3 py-3 font-semibold bg-emerald-600 text-white hover:bg-emerald-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-              aria-label="WhatsApp"
-            >
-              <MessageSquare className="w-5 h-5" />
-              <span>WhatsApp</span>
+              href={mailHref}
+                className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-4 font-semibold bg-yellow-400 text-black hover:bg-yellow-300 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
+                aria-label={`Email ${email}`}
+              >
+                <Mail className="w-5 h-5" />
+                Email {email}
             </a>
             <a
               href={telHref}
