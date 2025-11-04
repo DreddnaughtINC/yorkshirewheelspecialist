@@ -113,13 +113,12 @@ const product: Product = {
 export default function ProductPage() {
   const [selectedImage, setSelectedImage] = useState<number>(0);
 
-  // prevent iOS bottom bar from covering sticky CTA
-    useEffect(() => {
-      document.documentElement.style.setProperty('--safe-bottom', 'env(safe-area-inset-bottom, 0px)');
-      return () => {
-        document.documentElement.style.removeProperty('--safe-bottom');
-      };
-    }, []);
+  useEffect(() => {
+    document.documentElement.style.setProperty('--safe-bottom', 'env(safe-area-inset-bottom, 0px)');
+    return () => {
+      document.documentElement.style.removeProperty('--safe-bottom');
+    };
+  }, []);
 
   const enc = (s: string) => encodeURIComponent(s);
   const subject = `Enquiry: ${product.name}`;
@@ -138,7 +137,7 @@ export default function ProductPage() {
 
   return (
     <div className="min-h-screen bg-neutral-50 pb-24 sm:pb-0">
-      {/* Breadcrumb (smaller on mobile) */}
+      {/* Breadcrumb */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
           <nav className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
@@ -154,19 +153,18 @@ export default function ProductPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Product Images */}
-          <div className="space-y-3 sm:space-y-4">
-            {/* Main Image */}
-            <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden aspect-[4/3]">
+          <div className="space-y-3 sm:space-y-4 max-w-full">
+            {/* Main Image (guard overflow) */}
+            <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden aspect-[4/3] max-w-full">
               <Image
                 src={product.images[selectedImage]}
                 alt={product.name}
                 fill
                 priority
-                className="object-cover touch-pan-y"
+                className="object-cover"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
               />
 
-              {/* Image Navigation (bigger targets on mobile) */}
               {product.images.length > 1 && (
                 <>
                   <button
@@ -192,7 +190,6 @@ export default function ProductPage() {
                 </>
               )}
 
-              {/* Category Badge */}
               <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
                 <span
                   className={`px-2.5 py-1 text-[10px] sm:text-xs font-semibold rounded-full ${
@@ -210,17 +207,15 @@ export default function ProductPage() {
               </div>
             </div>
 
-            {/* Thumbnails — horizontal scroll on mobile */}
+            {/* Thumbnails — keep inside container */}
             {product.images.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0 snap-x snap-mandatory">
+              <div className="flex gap-2 overflow-x-auto pb-1 px-1 sm:px-0 snap-x snap-mandatory max-w-full">
                 {product.images.map((image: string, index: number) => (
                   <button
                     key={image}
                     onClick={() => setSelectedImage(index)}
-                    className={`relative min-w-[76px] w-20 h-20 rounded-lg overflow-hidden border-2 transition-all snap-start ${
-                      selectedImage === index
-                        ? 'border-green-600'
-                        : 'border-gray-200 hover:border-gray-300'
+                    className={`relative min-w-[72px] w-20 h-20 rounded-lg overflow-hidden border-2 transition-all snap-start ${
+                      selectedImage === index ? 'border-green-600' : 'border-gray-200 hover:border-gray-300'
                     }`}
                     aria-label={`Show image ${index + 1}`}
                   >
@@ -240,7 +235,6 @@ export default function ProductPage() {
 
           {/* Product Info */}
           <div className="space-y-5 sm:space-y-6">
-            {/* Header */}
             <div>
               <div className="flex items-center justify-between mb-1.5 sm:mb-2">
                 <span className="text-green-700 text-sm sm:text-base font-medium">{product.brand}</span>
@@ -250,31 +244,15 @@ export default function ProductPage() {
                 {product.name}
               </h1>
 
-              {/* Price + OBO */}
               <div className="flex items-center flex-wrap gap-2 sm:gap-3 mb-4 sm:mb-6">
                 {typeof product.price === 'number' ? (
                   <>
                     <span className="text-3xl sm:text-4xl font-extrabold text-green-700">
                       £{product.price}
                     </span>
-
-                    <span
-                      className="inline-flex items-center rounded-full bg-emerald-600/10 text-emerald-700 px-2.5 py-1 text-[11px] sm:text-xs font-semibold ring-1 ring-emerald-600/20"
-                      aria-label="or best offer"
-                    >
+                    <span className="inline-flex items-center rounded-full bg-emerald-600/10 text-emerald-700 px-2.5 py-1 text-[11px] sm:text-xs font-semibold ring-1 ring-emerald-600/20">
                       or Best Offer
                     </span>
-
-                    {product.originalPrice ? (
-                      <>
-                        <span className="text-lg sm:text-xl text-gray-500 line-through">
-                          £{product.originalPrice}
-                        </span>
-                        <span className="bg-red-100 text-red-700 px-2.5 py-1 rounded-full text-xs sm:text-sm font-semibold">
-                          Save £{(product.originalPrice - product.price).toFixed(0)}
-                        </span>
-                      </>
-                    ) : null}
                   </>
                 ) : (
                   <span className="text-xl sm:text-2xl font-semibold text-gray-900">
@@ -284,7 +262,6 @@ export default function ProductPage() {
               </div>
             </div>
 
-            {/* Stock */}
             <div className="flex items-center gap-2">
               {product.inStock ? (
                 <>
@@ -298,7 +275,6 @@ export default function ProductPage() {
               )}
             </div>
 
-            {/* Description */}
             <div>
               <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3">Description</h3>
               <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
@@ -306,7 +282,6 @@ export default function ProductPage() {
               </p>
             </div>
 
-            {/* Features */}
             <div>
               <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3">Features</h3>
               <ul className="space-y-1.5 sm:space-y-2">
@@ -319,12 +294,11 @@ export default function ProductPage() {
               </ul>
             </div>
 
-            {/* Contact to Buy */}
+            {/* Desktop CTAs */}
             <div className="hidden sm:block space-y-3">
               <a
                 href={telHref}
                 className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-4 font-semibold bg-gray-900 text-white hover:bg-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
-                aria-label={`Call ${formatPhone(phone)}`}
               >
                 <Phone className="w-5 h-5" />
                 Call {formatPhone(phone)}
@@ -332,12 +306,12 @@ export default function ProductPage() {
               <a
                 href={mailHref}
                 className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-4 font-semibold bg-yellow-400 text-black hover:bg-yellow-300 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
-                aria-label={`Email ${email}`}
               >
                 <Mail className="w-5 h-5" />
                 Email {email}
               </a>
 
+              {/* Returns link + dropdown (unchanged) */}
               <p className="mt-1 text-sm text-gray-500">
                 By contacting us you agree to our{' '}
                 <a
@@ -354,11 +328,7 @@ export default function ProductPage() {
                 </a>.
               </p>
 
-              {/* Returns & Cancellations */}
-              <details
-                id="returns-drop"
-                className="mt-4 rounded-xl bg-white/70 p-4 ring-1 ring-gray-200 open:shadow-inner"
-              >
+              <details id="returns-drop" className="mt-4 rounded-xl bg-white/70 p-4 ring-1 ring-gray-200 open:shadow-inner">
                 <summary className="cursor-pointer select-none text-sm font-semibold flex items-center justify-between text-gray-900">
                   Returns & Cancellations
                   <span className="ml-3 inline-block text-xs text-gray-500">(tap to expand)</span>
@@ -383,17 +353,13 @@ export default function ProductPage() {
                     <strong>Exclusions:</strong> Custom refinishing/personalised work is non-returnable unless faulty.
                   </p>
                   <p>
-                    <strong>How to return:</strong> Email{' '}
-                    <a href={`mailto:${email}`} className="underline decoration-dotted">
-                      {email}
-                    </a>{' '}
-                    with your order details and photos; we can book pallet collection at cost.
+                    <strong>How to return:</strong> Email <a href={`mailto:${email}`} className="underline decoration-dotted">{email}</a> with your order details and photos; we can book pallet collection at cost.
                   </p>
                 </div>
               </details>
             </div>
 
-            {/* Delivery Options */}
+            {/* Delivery */}
             <div className="pt-5 sm:pt-6 border-t">
               <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3">Delivery Options</h3>
               <ul className="space-y-1.5 sm:space-y-2">
@@ -426,7 +392,6 @@ export default function ProductPage() {
         <div className="mt-12 sm:mt-16">
           <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden">
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8 p-6 sm:p-8">
-              {/* Specifications */}
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Specifications</h3>
                 <div className="space-y-3 sm:space-y-4">
@@ -441,7 +406,6 @@ export default function ProductPage() {
                 </div>
               </div>
 
-              {/* Compatibility */}
               <div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Vehicle Compatibility</h3>
                 <div className="space-y-1.5 sm:space-y-2">
@@ -461,7 +425,6 @@ export default function ProductPage() {
               </div>
             </div>
 
-            {/* Condition Details */}
             <div className="p-6 sm:p-8 border-t">
               <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Condition</h3>
               <ul className="grid md:grid-cols-2 gap-3 sm:gap-4">
@@ -484,7 +447,7 @@ export default function ProductPage() {
         </div>
       </div>
 
-      {/* Sticky Mobile CTA (hidden ≥sm) */}
+      {/* Sticky Mobile CTA */}
       <div
         className="sm:hidden fixed inset-x-0 bottom-0 z-40 border-t border-gray-200 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/70"
         style={{ paddingBottom: 'var(--safe-bottom)' as React.CSSProperties['paddingBottom'] }}
@@ -494,17 +457,8 @@ export default function ProductPage() {
         <div className="mx-auto max-w-7xl px-4 py-2">
           <div className="grid grid-cols-2 gap-2">
             <a
-              href={mailHref}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-4 font-semibold bg-yellow-400 text-black hover:bg-yellow-300 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
-                aria-label={`Email ${email}`}
-              >
-                <Mail className="w-5 h-5" />
-                Email {email}
-            </a>
-            <a
               href={telHref}
               className="inline-flex items-center justify-center gap-2 rounded-lg px-3 py-3 font-semibold bg-gray-900 text-white hover:bg-black focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-              aria-label={`Call ${formatPhone(phone)}`}
             >
               <Phone className="w-5 h-5" />
               <span>Call</span>
@@ -516,7 +470,6 @@ export default function ProductPage() {
   );
 }
 
-/* Utils */
 function formatPhone(p: string) {
   return p.replace(/^(\d{5})(\d{6})$/, '$1 $2');
 }
