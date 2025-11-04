@@ -209,12 +209,12 @@ export default function ProductPage() {
 
             {/* Thumbnails */}
             {product.images.length > 1 && (
-              <div className="flex gap-2">
+              <div className="flex gap-2 overflow-x-auto pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
                 {product.images.map((image: string, index: number) => (
                   <button
                     key={image}
                     onClick={() => setSelectedImage(index)}
-                    className={`relative w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                    className={`relative min-w-[72px] w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
                       selectedImage === index ? 'border-green-600' : 'border-gray-200 hover:border-gray-300'
                     }`}
                     aria-label={`Show image ${index + 1}`}
@@ -234,7 +234,7 @@ export default function ProductPage() {
                 <span className="text-green-600 font-medium">{product.brand}</span>
               </div>
 
-              <h1 className="text-3xl font-bold text-gray-900 mb-4">{product.name}</h1>
+              <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-4">{product.name}</h1>
 
               <div className="flex items-center flex-wrap gap-3 mb-6">
               {typeof product.price === 'number' ? (
@@ -304,27 +304,30 @@ export default function ProductPage() {
                 href={waHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 font-semibold bg-emerald-600 text-white hover:bg-emerald-700 transition"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-4 font-semibold bg-emerald-600 text-white hover:bg-emerald-700 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
+                aria-label="Contact via WhatsApp"
               >
                 <MessageSquare className="w-5 h-5" />
                 WhatsApp
               </a>
               <a
                 href={telHref}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 font-semibold bg-gray-900 text-white hover:bg-black transition"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-4 font-semibold bg-gray-900 text-white hover:bg-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
+                aria-label={`Call ${formatPhone(phone)}`}
               >
                 <Phone className="w-5 h-5" />
                 Call {formatPhone(phone)}
               </a>
               <a
                 href={mailHref}
-                className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-3 font-semibold bg-yellow-400 text-black hover:bg-yellow-300 transition"
+                className="w-full inline-flex items-center justify-center gap-2 rounded-lg px-5 py-4 font-semibold bg-yellow-400 text-black hover:bg-yellow-300 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-emerald-500"
+                aria-label={`Email ${email}`}
               >
                 <Mail className="w-5 h-5" />
                 Email {email}
               </a>
               {/* Tiny link that opens the dropdown */}
-<p className="mt-1 text-xs text-gray-500">
+<p className="mt-1 text-sm sm:text-base text-gray-500">
   By contacting us you agree to our{" "}
   <a
     href="#returns"
@@ -346,7 +349,7 @@ export default function ProductPage() {
     Returns & Cancellations
     <span className="ml-3 inline-block text-xs text-gray-500">(tap to expand)</span>
   </summary>
-  <div className="mt-3 space-y-3 text-sm text-gray-700 leading-relaxed">
+  <div className="mt-3 space-y-3 text-sm sm:text-base text-gray-700 leading-relaxed">
     <p>
       <strong>Change-of-mind (distance sales only):</strong> For consumer purchases arranged by phone/email or online
       with delivery, you may cancel within <strong>14 days</strong> of delivery. Items must be returned in the condition
@@ -383,7 +386,7 @@ export default function ProductPage() {
               <h3 className="font-semibold text-lg mb-3">Delivery Options</h3>
               <ul className="space-y-2">
                 {product.deliveryOptions.map((option: string) => (
-                  <li key={option} className="flex items-center space-x-2">
+                  <li key={option} className="flex items-center space-x-2 text-sm sm:text-base">
                     <Check className="w-4 h-4 text-green-600" />
                     <span className="text-gray-700">{option}</span>
                   </li>

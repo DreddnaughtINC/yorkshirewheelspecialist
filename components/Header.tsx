@@ -41,10 +41,10 @@ const Header = () => {
             <nav className="hidden lg:flex items-center space-x-8">
               <a href="/" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Home</a>
               <a href="/services" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Services</a>
+              <a href="/shop" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Shop</a>
               <a href="/gallery" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Gallery</a>
               <a href="/business" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Business</a>
               <a href="/contact" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Contact</a>
-              <a href="/shop" className="text-gray-700 hover:text-green-600 font-medium transition-colors">Shop</a>
             </nav>
 
             {/* CTA Buttons */}
