@@ -136,16 +136,18 @@ export default function ProductPage() {
   const waHref = `https://wa.me/${phone.replace(/[^\d]/g, '')}?text=${enc(`${subject}\n\n${body}`)}`;
 
   return (
-    <div className="min-h-screen bg-neutral-50 pb-24 sm:pb-0">
+    <div className="min-h-screen bg-neutral-50 overflow-x-hidden">
       {/* Breadcrumb */}
       <div className="bg-white border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
-          <nav className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
-            <Link href="/" className="text-gray-500 hover:text-green-700">Home</Link>
+          <nav className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs sm:text-sm">
+            <Link href="/" className="text-gray-500 hover:text-green-600">Home</Link>
             <span className="text-gray-400">/</span>
-            <Link href="/shop" className="text-gray-500 hover:text-green-700">Shop</Link>
+            <Link href="/shop" className="text-gray-500 hover:text-green-600">Shop</Link>
             <span className="text-gray-400">/</span>
-            <span className="text-gray-900 truncate">{product.name}</span>
+            <span className="text-gray-900 break-words">
+              {product.name}
+            </span>
           </nav>
         </div>
       </div>
@@ -153,42 +155,35 @@ export default function ProductPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
           {/* Product Images */}
-          <div className="space-y-3 sm:space-y-4 max-w-full">
+          <div className="space-y-3 sm:space-y-4 min-w-0">
             {/* Main Image (guard overflow) */}
-            <div className="relative bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden aspect-[4/3] max-w-full">
-              <Image
-                src={product.images[selectedImage]}
-                alt={product.name}
-                fill
-                priority
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
-              />
+            <div className="relative bg-white rounded-2xl shadow-lg overflow-hidden aspect-[4/3] w-full max-w-full">
+            <Image
+              src={product.images[selectedImage]}
+              alt={product.name}
+              fill
+              className="object-cover"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 640px"
+              priority
+            />
 
               {product.images.length > 1 && (
-                <>
+              <div className="flex gap-2 overflow-x-auto pb-1 px-1 sm:px-0 max-w-full">
+                {product.images.map((image, index) => (
                   <button
-                    onClick={() =>
-                      setSelectedImage((prev) => (prev > 0 ? prev - 1 : product.images.length - 1))
-                    }
-                    className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/95 p-3 sm:p-2 rounded-full hover:bg-white transition shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-                    aria-label="Previous image"
+                    key={image}
+                    onClick={() => setSelectedImage(index)}
+                    className={`relative min-w-[72px] w-20 h-20 rounded-lg overflow-hidden border-2 transition-all ${
+                      selectedImage === index ? 'border-green-600' : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                    aria-label={`Show image ${index + 1}`}
                   >
-                    <ChevronLeft className="w-5 h-5" />
+                    <Image src={image} alt={`${product.name} ${index + 1}`} fill className="object-cover" sizes="76px" />
                   </button>
-                  <button
-                    onClick={() =>
-                      setSelectedImage((prev) =>
-                        prev < product.images.length - 1 ? prev + 1 : 0
-                      )
-                    }
-                    className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/95 p-3 sm:p-2 rounded-full hover:bg-white transition shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
-                    aria-label="Next image"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
-                </>
-              )}
+                ))}
+              </div>
+            )}
+
 
               <div className="absolute top-2 sm:top-4 left-2 sm:left-4">
                 <span
@@ -234,7 +229,7 @@ export default function ProductPage() {
           </div>
 
           {/* Product Info */}
-          <div className="space-y-5 sm:space-y-6">
+          <div className="space-y-5 sm:space-y-6 min-w-0">
             <div>
               <div className="flex items-center justify-between mb-1.5 sm:mb-2">
                 <span className="text-green-700 text-sm sm:text-base font-medium">{product.brand}</span>
@@ -277,7 +272,7 @@ export default function ProductPage() {
 
             <div>
               <h3 className="font-semibold text-base sm:text-lg mb-2 sm:mb-3">Description</h3>
-              <p className="text-gray-700 leading-relaxed text-sm sm:text-base">
+              <p className="text-gray-700 leading-relaxed break-words">
                 {product.description}
               </p>
             </div>
