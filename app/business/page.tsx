@@ -1,6 +1,7 @@
-'use client';
+ 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import Image from 'next/image';
 import {
   Building2,
@@ -210,12 +211,12 @@ const Page = () => {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105">
+                <Link href="/contact" aria-label="Get Business Quote - open contact form" className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 flex items-center justify-center">
                   Get Business Quote
-                </button>
-                <button className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105">
+                </Link>
+                <Link href="/contact" aria-label="Schedule Consultation - open contact form" className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all hover:scale-105 flex items-center justify-center">
                   Schedule Consultation
-                </button>
+                </Link>
               </div>
 
               <div className="grid grid-cols-3 gap-6">
@@ -310,7 +311,7 @@ const Page = () => {
                     <Phone className="w-5 h-5 mr-2" />
                     Call for Industry Quote
                   </a>
-                  <a href="mailto:joe@yorkshirewheelspecialist.co.uk" className="w-full border-2 border-green-600 text-green-600 py-3 px-6 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors flex items-center justify-center">
+                  <a href="/contact" className="w-full border-2 border-green-600 text-green-600 py-3 px-6 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors flex items-center justify-center">
                     <Mail className="w-5 h-5 mr-2" />
                     Request Consultation
                   </a>
