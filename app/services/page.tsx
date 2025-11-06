@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { 
   Palette, 
   Diamond, 
@@ -17,7 +18,8 @@ import {
   ArrowRight,
   CheckCircle,
   Award,
-  Zap
+  Zap,
+  Paintbrush
 } from 'lucide-react';
 
 const DetailedServices = () => {
@@ -35,7 +37,7 @@ const DetailedServices = () => {
       title: "Powder Coating",
       subtitle: "Factory-Grade Finish",
       description: "Our powder coating service provides a durable, long-lasting finish that's superior to traditional paint.",
-      image: "/images/services/ChatGPT Image Aug 26, 2025, 09_16_15 PM.png",
+      image: "/images/services/powder.jpg",
       priceFrom: "85 Per Wheel",
       duration: "3-5 days",
       warranty: "12 months",
@@ -115,32 +117,33 @@ const DetailedServices = () => {
       safetyNote: "All structural repairs are pressure tested for safety"
     },
     {
-      id: 'split-rim',
-      icon: <Scissors className="w-8 h-8" />,
-      title: "Split Rim Refurbishment",
-      subtitle: "Multi-Piece Wheel Specialists",
-      description: "Complete refurbishment of split rim wheels including disassembly, individual component restoration, new hardware, and professional reassembly with correct torque specifications.",
-      image: "/images/services/2148194142.jpg",
-      priceFrom: "150 Per Wheel",
-      duration: "5-7 days",
+      id: "respray-colour-change",
+      icon: <Paintbrush className="w-8 h-8" />,
+      title: "Alloy Wheel Respray (Colour Change)",
+      subtitle: "Colour Change & OEM Match",
+      description:
+        "Full cosmetic respray to change your wheel colour or restore an OEM shade. Includes preparation, primer, basecoat and durable clear coat for a factory-quality finish.",
+      image: "/images/services/resprayed.jpg", // update path to your asset
+      priceLabel: "Contact for quote",            // replaces priceFrom
+      duration: "2–3 days",
       warranty: "12 months",
       features: [
-        "Complete wheel disassembly",
-        "Individual component refurbishment",
-        "New bolts and sealing hardware",
-        "Professional reassembly service",
-        "Torque specification compliance",
-        "Air pressure testing"
+        "Professional prep: strip, sand, degrease",
+        "OEM colour matching or custom finishes",
+        "High-build primer for flawless base",
+        "Basecoat + 2K clear for durability",
+        "Tyre refit & dynamic balancing",
+        "Brake-dust & corrosion resistant finish"
       ],
       process: [
-        "Careful wheel disassembly",
-        "Component cleaning and assessment",
-        "Individual piece refurbishment",
-        "New hardware installation",
-        "Professional reassembly",
-        "Pressure testing and balancing"
+        "Inspection & colour consultation",
+        "Surface prep: repair minor scuffs/kerb rash",
+        "Primer application & cure",
+        "Colour basecoat application",
+        "2K clear coat and oven cure",
+        "Final polish, refit & QC check"
       ],
-      expertise: "Specialists in BBS, OZ, and custom split rims"
+      popular: true
     },
     {
       id: 'smart-repair',
@@ -176,7 +179,7 @@ const DetailedServices = () => {
       title: "Kerb & Corrosion Repair",
       subtitle: "Complete Restoration",
       description: "Comprehensive repair service for kerb damage and corrosion issues. We restore wheels to original condition using professional techniques and premium materials.",
-      image: "/images/services/ChatGPT Image Aug 26, 2025, 09_26_08 PM.png",
+      image: "/images/services/kerbed.jpg",
       priceFrom: "65 Per Wheel",
       duration: "3-4 days",
       warranty: "12 months",
@@ -246,12 +249,12 @@ const DetailedServices = () => {
   </a>
 
   {/* Email for a Free Quote button */}
-  <a
-    href="mailto:joe@yorkshirewheelspecialist.co.uk?subject=Free%20Alloy%20Wheel%20Quote&body=Hi%20Joe,%0D%0A%0D%0AI'd%20like%20a%20free%20quote%20for%20my%20alloy%20wheels.%20Please%20contact%20me%20back.%0D%0A%0D%0AThanks,"
+  <Link
+    href="/contact"
     className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105"
   >
     Email for Free Quote
-  </a>
+  </Link>
 </div>
 
           </div>
@@ -303,10 +306,14 @@ const DetailedServices = () => {
                       className="rounded-xl shadow-2xl w-full h-auto"
                     />
                   </div>
-                  {/* Price Badge */}
-                  <div className="absolute -bottom-6 -right-6 bg-green-600 text-white px-6 py-4 rounded-xl font-bold shadow-lg">
-                    <div className="text-sm">From</div>
-                    <div className="text-2xl">£{service.priceFrom}</div>
+                  {/* Quote Badge (replaces the old price badge) */}
+                  <div
+                    className="absolute -bottom-6 -right-6 rounded-xl px-5 py-3
+                              bg-amber-400 text-black shadow-lg font-semibold
+                              dark:bg-amber-500 dark:text-black/90"
+                    aria-label="Contact for quote"
+                  >
+                    Contact for Quote
                   </div>
                 </div>
 
@@ -324,22 +331,28 @@ const DetailedServices = () => {
 
                   {/* Service Stats */}
                   <div className="grid grid-cols-3 gap-4 mb-8">
-                    <div className="text-center p-4 bg-gray-50 rounded-lg">
-                      <Clock className="w-6 h-6 text-green-600 mx-auto mb-2" />
-                      <div className="font-semibold text-gray-900">{service.duration}</div>
-                      <div className="text-sm text-gray-600">Turnaround</div>
-                    </div>
-                    <div className="text-center p-4 bg-gray-50 rounded-lg">
-                      <Shield className="w-6 h-6 text-green-600 mx-auto mb-2" />
-                      <div className="font-semibold text-gray-900">{service.warranty}</div>
-                      <div className="text-sm text-gray-600">Warranty</div>
-                    </div>
-                    <div className="text-center p-4 bg-gray-50 rounded-lg">
-                      <Star className="w-6 h-6 text-green-600 mx-auto mb-2" />
-                      <div className="font-semibold text-gray-900">4.9/5</div>
-                      <div className="text-sm text-gray-600">Rating</div>
-                    </div>
+                  {/* Pick-up & Return */}
+                  <div className="text-center p-4 bg-gray-50 rounded-lg dark:bg-neutral-900">
+                    <Truck className="w-6 h-6 text-green-600 mx-auto mb-2" />
+                    <div className="font-semibold text-gray-900 dark:text-white">Pick-up & Return</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300">Available</div>
                   </div>
+
+                  {/* Warranty (unchanged) */}
+                  <div className="text-center p-4 bg-gray-50 rounded-lg dark:bg-neutral-900">
+                    <Shield className="w-6 h-6 text-green-600 mx-auto mb-2" />
+                    <div className="font-semibold text-gray-900 dark:text-white">{service.warranty}</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300">Warranty</div>
+                  </div>
+
+                  {/* Optional third stat — swap to something shop-specific */}
+                  <div className="text-center p-4 bg-gray-50 rounded-lg dark:bg-neutral-900">
+                    <Route className="w-6 h-6 text-green-600 mx-auto mb-2" />
+                    <div className="font-semibold text-gray-900 dark:text-white">Within 25 miles</div>
+                    <div className="text-sm text-gray-600 dark:text-gray-300">Sheffield area</div>
+                  </div>
+                </div>
+
 
                   {/* CTAs */}
                   <div className="flex flex-col sm:flex-row gap-4">
@@ -352,14 +365,14 @@ const DetailedServices = () => {
                       Call for Quote
                     </a>
 
-                    <a
-                      href="mailto:joe@yorkshirewheelspecialist.co.uk"
-                      aria-label="Email Yorkshire Wheel Specialist for an enquiry"
+                    <Link
+                      href="/contact"
+                      aria-label="Email enquiry - open contact form"
                       className="flex-1 border-2 border-green-600 text-green-600 px-6 py-3 rounded-lg font-semibold hover:bg-green-600 hover:text-white transition-colors flex items-center justify-center"
                     >
                       <Mail className="w-5 h-5 mr-2" />
                       Email Enquiry
-                    </a>
+                    </Link>
                   </div>
 
                 </div>
@@ -415,13 +428,13 @@ const DetailedServices = () => {
                       <ArrowRight className="w-4 h-4 ml-2" />
                     </a>
 
-                    <a
-                      href="mailto:joe@yorkshirewheelspecialist.co.uk"
-                      aria-label="Email Yorkshire Wheel Specialist to book now"
-                      className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors"
+                    <Link
+                      href="/contact"
+                      aria-label="Book now - open contact form"
+                      className="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-colors flex items-center justify-center"
                     >
                       Book Now
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -439,14 +452,20 @@ const DetailedServices = () => {
             the perfect service for your wheels.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 flex items-center justify-center">
+            <a
+              href="tel:07455298619"
+              className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 flex items-center justify-center"
+            >
               <Phone className="w-5 h-5 mr-2" />
               Call 07455298619
-            </button>
-            <button className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 flex items-center justify-center">
+            </a>
+            <Link
+              href="/contact"
+              className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 flex items-center justify-center"
+            >
               <Mail className="w-5 h-5 mr-2" />
               Get Online Quote
-            </button>
+            </Link>
           </div>
         </div>
       </section>

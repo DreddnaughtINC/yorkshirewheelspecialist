@@ -19,7 +19,7 @@ const Hero = () => {
                   <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
                 ))}
               </div>
-              <span className="text-gray-300">4.9/5 from 200+ reviews</span>
+              
             </div>
             
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
@@ -45,7 +45,7 @@ const Hero = () => {
 
             {/* Email for Free Quote button */}
             <a
-              href="mailto:joe@yorkshirewheelspecialist.co.uk?subject=Free%20Alloy%20Wheel%20Quote&body=Hi%20Joe,%0D%0A%0D%0AI'd%20like%20a%20free%20quote%20for%20my%20alloy%20wheels.%20Please%20contact%20me%20back.%0D%0A%0D%0AThanks,"
+              href="/contact"
               className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 text-center"
             >
               Get Free Quote
@@ -68,7 +68,7 @@ const Hero = () => {
               </div>
               <div className="text-center">
                 <Star className="w-8 h-8 text-yellow-400 mx-auto mb-2" />
-                <p className="text-sm text-gray-300">5 Star<br />Rated</p>
+                <p className="text-sm text-gray-300">Trusted<br />Nationally</p>
               </div>
             </div>
           </div>

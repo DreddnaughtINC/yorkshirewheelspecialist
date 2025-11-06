@@ -15,6 +15,7 @@ import {
   Route,
   ArrowRight,
   PhoneCall,
+  Paintbrush
 } from "lucide-react";
 
 /**
@@ -103,8 +104,8 @@ const ConvenienceCard = ({ service }: { service: Service }) => (
         ))}
       </ul>
       <div className="mt-auto flex items-center gap-3">
-        <a href="#quote" className="btn btn-primary">Book Collection</a>
-        <a href="tel:+44" className="btn btn-secondary">Call</a>
+        <a href="/contact" className="btn btn-primary">Book Collection</a>
+        <a href="tel:+447455298619" className="btn btn-secondary">Call</a>
       </div>
     </div>
   </article>
@@ -144,11 +145,11 @@ const Services = () => {
     image: "/images/services/welding-8445458_1280.jpg",
   },
     {
-      icon: <Scissors className="w-8 h-8" />,
-      title: "Split Rims",
-      description:
-        "Specialist split-rim refurbishment incl. disassembly, new hardware and reseal.",
-      features: ["Disassemble", "New bolts", "Reseal & torque"],
+  icon: <Paintbrush className="w-8 h-8" />, // or <Palette ... />
+  title: "Alloy Wheel Colour Change",
+  description:
+    "Full cosmetic respray to change your wheel colour or restore an OEM shade. Durable 2K clear for a factory-quality finish.",
+  features: ["Prep & prime", "OEM colour match", "2K clear coat"],
       image: "/images/services/2148194142.jpg",
     },
     {
