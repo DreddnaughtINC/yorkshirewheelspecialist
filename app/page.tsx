@@ -6,10 +6,26 @@ import FeaturedProducts from '@/components/FeaturedProduct';
 import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import GalleryPreview from '@/components/GalleryPreview';
+import buildMetadata from '@/lib/seo';
+import SeoMeta from '@/components/SeoMeta';
+
+export const metadata = buildMetadata({
+  title: 'Home',
+  description: 'Yorkshire Wheel Specialist — expert alloy wheel refurbishment, repair and sales across Sheffield & Yorkshire. Call 07455298619.',
+  pathname: '/',
+});
 
 export default function Home() {
   return (
     <>
+      <SeoMeta
+        structuredData={{
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'Yorkshire Wheel Specialist',
+          url: 'https://yorkshirewheelspecialist.co.uk',
+        }}
+      />
       <Hero />
       <Services />
       <FeaturedProducts />
