@@ -32,109 +32,125 @@ const DetailedServices = () => {
 
   const services = [
     {
-      id: 'powder-coating',
-      icon: <Palette className="w-8 h-8" />,
-      title: "Powder Coating",
-      subtitle: "Factory-Grade Finish",
-      description: "Our powder coating service provides a durable, long-lasting finish that's superior to traditional paint.",
-      image: "/images/services/powder.jpg",
-      priceFrom: "85 Per Wheel",
-      duration: "3-5 days",
-      warranty: "12 months",
-      features: [
-        "Complete strip and chemical cleaning",
-        "Shot blasting for perfect adhesion",
-        "Electrostatic powder application",
-        "Oven curing at 200°C",
-        "OEM and custom color matching",
-        "Chip and corrosion resistant finish"
-      ],
-      process: [
-        "Wheel inspection and damage assessment",
-        "Complete stripping of old coating",
-        "Shot blasting for surface preparation",
-        "Powder application using electrostatic guns",
-        "Oven curing for 20 minutes at 200°C",
-        "Quality inspection and finishing"
-      ],
-      colors: ["OEM Silver", "Gloss Black", "Matt Black", "Anthracite", "Custom Colors"],
-      popular: true
-    },
+  id: "powder-coating",
+  icon: <Palette className="w-8 h-8" />,
+  title: "Full Powder-Coated Refurbishments",
+  subtitle: "Durable, Corrosion-Resistant Finish",
+  description:
+    "Powder coating alloy wheels gives a shield of protection against corrosion, whether you’re refurbishing damaged wheels or simply changing the colour to your desired look. Using a durable heat and electrostatic bonding process, the powder is attracted to the positively charged metal surface and cured to form a tough, long-lasting finish.",
+  image: "/images/services/powder.jpg",
+  priceFrom: "£85 per wheel",
+  duration: "3–5 days",
+  warranty: "12 months",
+  features: [
+    "Shield-like protection against corrosion",
+    "Ideal for damaged wheels or colour changes",
+    "Electrostatic powder application for strong adhesion",
+    "Full prime & powder coat in the colour of your choice",
+    "Choice of gloss, satin or matt finish",
+    "Quality assurance check before refit"
+  ],
+  process: [
+    "Wheels are removed from the vehicle and tyres, weights and valves are removed.",
+    "Alloys are chemically stripped back to bare aluminium, removing old paint, dirt and grime.",
+    "Corrosion and damage are repaired and treated to stabilise the surface.",
+    "Alloys are shot blasted to ensure a clean, even key for coating.",
+    "Wheels are primed and powder coated in the colour of your choice.",
+    "The finish is cured in the oven to create a strong, durable bond.",
+    "Alloys are finished in gloss, satin or matt, then quality checked.",
+    "Tyres, weights and valves are refitted, and wheels are balanced (where applicable)."
+  ],
+  colors: [
+    "OEM Silver",
+    "Gloss Black",
+    "Matt Black",
+    "Anthracite",
+    "Standard Colours",
+    "Custom Colours"
+  ],
+  popular: true
+},
+   {
+  id: "diamond-cut",
+  icon: <Diamond className="w-8 h-8" />,
+  title: "Full Diamond Cut Refurbishments",
+  subtitle: "In-House CNC Diamond Cutting",
+  description:
+    "As luxury cars become more popular, most vehicles now leave showrooms with diamond cut finished wheels. This is where the alloy is powder coated and then put onto a CNC diamond cutting machine, which removes a fine layer from the face of the wheel, leaving the aluminium showing and creating a crisp two-tone finish.",
+  image: "/images/services/car-wheel-with-new-tires-close-up.jpg",
+  priceFrom: "£95 per wheel",
+  duration: "4–6 days",
+  warranty: "12 months",
+  features: [
+    "Full diamond cut refurbishment, not just cosmetic touch-ups",
+    "In-house CNC diamond cutting for precise, repeatable results",
+    "Two-tone finish with exposed aluminium face and coloured background",
+    "Prime & powder coat in the colour of your choice before cutting",
+    "Lacquer options: high gloss, satin or matt for protection and shine",
+    "Quality assurance check before tyres are refitted and wheels are balanced"
+  ],
+  process: [
+    "Remove tyres, weights and valves from the wheels.",
+    "Chemically strip the alloy to remove existing paint, lacquer, dirt and grime.",
+    "Carry out corrosion and damage repair on the wheel face and edges.",
+    "Shot blast the alloy to ensure a clean, even surface for coating.",
+    "Prime and powder coat the wheel in the colour of your choice.",
+    "Diamond cut the face of the wheel in-house on our CNC machine to create the two-tone finish.",
+    "Lacquer the wheel with your chosen finish: gloss, satin or matt.",
+    "Perform a final quality assurance check, then refit tyres, weights and valves and balance the wheels."
+  ],
+  specialNote:
+    "Ideal for restoring factory diamond cut wheels or transforming standard alloys with a premium two-tone finish."
+},
     {
-      id: 'diamond-cut',
-      icon: <Diamond className="w-8 h-8" />,
-      title: "Diamond Cut Repairs",
-      subtitle: "CNC Precision Machining",
-      description: "We provide cosmetic repairs for diamond-cut wheels using colour-matched spray refinishing. For full diamond-cut restoration, we work with trusted specialists to ensure a factory-quality finish.",
-      image: "/images/services/car-wheel-with-new-tires-close-up.jpg",
-      priceFrom: "95 Per Wheel",
-      duration: "4-6 days",
-      warranty: "12 months",
-      features: [
-        "CNC lathe machining to OEM specification",
-        "Perfect face geometry recreation",
-        "High-quality clear lacquer protection",
-        "Mirror-like diamond cut finish",
-        "Precision balancing included",
-        "Factory-standard appearance"
-      ],
-      process: [
-        "Wheel assessment and measurement",
-        "Removal of damaged lacquer and surface",
-        "CNC machining to original specification",
-        "Surface polishing and preparation",
-        "Clear lacquer application",
-        "Final inspection and balancing"
-      ],
-      specialNote: "Suitable for wheels with minor corrosion or lacquer damage"
-    },
+  id: "structural-repair",
+  icon: <Hammer className="w-8 h-8" />,
+  title: "Wheel Straightening & Alloy Welds",
+  subtitle: "Structural Repair & Safety Checks",
+  description:
+    "Straighten buckled wheels from pothole or kerb damage to help prevent vibration, wheel wobbles and leaking air. We also weld cracked alloys to stop air pressure loss and restore the structural integrity of the wheel. All repairs are checked and balanced to keep you safe on the road.",
+  image: "/images/services/welding-8445458_1280.jpg",
+  priceFrom: "£75 per wheel",
+  duration: "2–4 days",
+  warranty: "12 months",
+  features: [
+    "Straightening of buckled wheels from pothole or kerb damage",
+    "Alloy welds to repair cracked rims and prevent air loss",
+    "Structural assessment before any repair work begins",
+    "Careful reshaping to reduce vibration and wheel wobbles",
+    "Air-leak and safety checks after repair",
+    "Wheel balancing included after repairs are completed"
+  ],
+  process: [
+    "Initial structural damage assessment to identify buckles and cracks.",
+    "Wheels are removed from the vehicle and set up for repair.",
+    "Straightening of buckled areas to restore the correct shape and reduce vibration.",
+    "Preparation and cleaning around any cracks to ensure a clean weld.",
+    "Alloy welding to repair cracked areas and help prevent air pressure loss.",
+    "Air-leak and safety checks, followed by wheel balancing and final inspection."
+  ],
+  safetyNote:
+    "All structural repairs are carried out with safety as the priority. If a wheel is damaged beyond safe repair, we will always advise replacement rather than attempting a repair."
+},
     {
-      id: 'structural-repair',
-      icon: <Hammer className="w-8 h-8" />,
-      title: "Buckled & Cracked Repairs",
-      subtitle: "Structural Restoration",
-      description: "Professional repair of buckled rims and crack welding using specialized equipment. All repairs are pressure tested and balanced to ensure safety and performance.",
-      image: "/images/services/welding-8445458_1280.jpg",
-      priceFrom: "75 Per Wheel",
-      duration: "2-4 days",
-      warranty: "12 months",
-      features: [
-        "Hydraulic straightening equipment",
-        "TIG welding for crack repairs",
-        "Pressure testing to 150% working pressure",
-        "X-ray inspection available",
-        "Professional balancing service",
-        "Safety certification included"
-      ],
-      process: [
-        "Structural damage assessment",
-        "Hydraulic straightening if required",
-        "Crack preparation and cleaning",
-        "TIG welding with matching alloy",
-        "Pressure testing and inspection",
-        "Refinishing and balancing"
-      ],
-      safetyNote: "All structural repairs are pressure tested for safety"
-    },
-    {
-      id: "respray-colour-change",
-      icon: <Paintbrush className="w-8 h-8" />,
-      title: "Alloy Wheel Respray (Colour Change)",
-      subtitle: "Colour Change & OEM Match",
-      description:
-        "Full cosmetic respray to change your wheel colour or restore an OEM shade. Includes preparation, primer, basecoat and durable clear coat for a factory-quality finish.",
-      image: "/images/services/resprayed.jpg", // update path to your asset
-      priceLabel: "Contact for quote",            // replaces priceFrom
-      duration: "2–3 days",
-      warranty: "12 months",
-      features: [
-        "Professional prep: strip, sand, degrease",
-        "OEM colour matching or custom finishes",
-        "High-build primer for flawless base",
-        "Basecoat + 2K clear for durability",
-        "Tyre refit & dynamic balancing",
-        "Brake-dust & corrosion resistant finish"
-      ],
+  id: "respray-colour-change",
+  icon: <Paintbrush className="w-8 h-8" />,
+  title: "Alloy Wheel Respray (Colour Change)",
+  subtitle: "Colour Change & OEM Match",
+  description:
+    "Alloy colour change or custom colours to transform your wheels. Choose from our standard finishes (black, white, gold, gunmetal grey, silver or anthracite) or go bold with custom effects such as sparkle, candy, pearlescent, shimmer, iridescent, neon, metallic and transition colours, as well as chrome and shadow chrome. OEM colour matching is also available to achieve your desired look.",
+  image: "/images/services/resprayed.jpg", // update path to your asset
+  priceLabel: "Contact for quote",         // replaces priceFrom
+  duration: "2–3 days",
+  warranty: "12 months",
+  features: [
+    "Full cosmetic respray and colour change",
+    "Standard colours: black, white, gold, gunmetal grey, silver, anthracite",
+    "Custom finishes: sparkle, candy, pearlescent, shimmer, iridescent, neon, metallic, transition colours",
+    "Chrome and shadow chrome style options",
+    "OEM colour matching to your desired look",
+    "Preparation, primer, basecoat and durable clear coat"
+  ],
       process: [
         "Inspection & colour consultation",
         "Surface prep: repair minor scuffs/kerb rash",

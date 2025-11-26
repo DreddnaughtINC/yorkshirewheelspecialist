@@ -125,49 +125,77 @@ const Services = () => {
   },
     {
   icon: <Diamond className="w-8 h-8" />,
-  title: "Diamond Cut Repairs",
+  title: "Full Diamond Cut Refurbishments",
   description:
-    "We provide cosmetic repairs for diamond-cut wheels using colour-matched spray refinishing. For full diamond-cut restoration, we work with trusted specialists to ensure a factory-quality finish.",
+    "Factory-style diamond cut finish using in-house CNC machining, from strip and repair to powder coat, cut and lacquer.",
   features: [
-    "Colour-matched spray refinishing",
-    "Cosmetic diamond-cut touch-ups",
-    "Referral for full restoration"
+    "Remove tyres, weights & valves",
+    "Chemically strip the alloy",
+    "Corrosion and damage repair",
+    "Shot blast & prime",
+    "Powder coat in your chosen colour",
+    "Diamond cut in-house on our CNC machine",
+    "Lacquer in gloss, satin or matt",
+    "Quality assurance check, tyre refit & balance",
   ],
   image: "/images/services/car-wheel-with-new-tires-close-up.jpg",
-},
-
-    {
-    icon: <Hammer className="w-8 h-8" />,
-    title: "Cracked or Buckled Alloys",
-    description:
-      "Minor cracks or buckles are assessed and, where possible, repaired safely before balancing and refinishing.",
-    features: ["Crack inspection", "Straightening (where viable)", "Safety checks"],
-    image: "/images/services/welding-8445458_1280.jpg",
-  },
-    {
-  icon: <Paintbrush className="w-8 h-8" />, // or <Palette ... />
-  title: "Alloy Wheel Colour Change",
-  description:
-    "Full cosmetic respray to change your wheel colour or restore an OEM shade. Durable 2K clear for a factory-quality finish.",
-  features: ["Prep & prime", "OEM colour match", "2K clear coat"],
-      image: "/images/services/2148194142.jpg",
-    },
-    {
+}
+,
+{
       icon: <Wand2 className="w-8 h-8" />,
       title: "SMART Repairs",
       description:
-        "Localised refinishing for scuffs and scrapes—fast, tidy and cost-effective.",
-      features: ["Spot repair", "Colour match", "Same-day options"],
+    "Localised refinishing for scuffs and scrapes—fast, tidy and cost-effective.",
+  features: [
+    "Wheels removed from vehicle",
+    "Tyre popped off bead",
+    "Removal of damage",
+    "Prep the face of the alloy",
+    "Repaint and relacquer the face",
+    "Quality assurance checked, tyre refit",
+    "Alloys put back onto the vehicle",
+  ],
       image: "/images/services/man-fixing-wheel-bolts.jpg",
     },
-    {
-      icon: <Sparkles className="w-8 h-8" />,
-      title: "Kerbed / Corroded Alloys",
-      description:
-        "We restore kerbed or corroded alloys to a smooth, clean finish using specialist sanding and refinishing techniques — no need for full replacement.",
-      features: ["Kerb rash removal", "Corrosion treatment", "Durable painted finish"],
-      image: "images/services/ChatGPT Image Aug 26, 2025, 09_26_08 PM.png",
-    },
+{
+  icon: <Hammer className="w-8 h-8" />,
+  title: "Wheel Straightening & Alloy Welds",
+  description:
+    "Straighten buckled wheels from pothole or kerb damage and weld cracked alloys to prevent vibration, wheel wobbles and loss of air pressure.",
+  features: [
+    "Buckled wheel assessment & straightening",
+    "Alloy welds for cracked wheels",
+    "Checks for vibration, wobble & air leaks",
+  ],
+  image: "/images/services/welding-8445458_1280.jpg",
+},
+{
+  icon: <Paintbrush className="w-8 h-8" />, // or <Palette ... />
+  title: "Alloy Colour Change / Custom Colours",
+  description:
+    "From OEM-style blacks and silvers to bold sparkle, candy, pearlescent, chrome and more – with full OEM colour match available.",
+  features: [
+    "Standard colours: black, white, gold, gunmetal grey, silver, anthracite",
+    "Custom effects: sparkle, candy, pearlescent, shimmer, iridescent, neon, metallic",
+    "Transition colours, chrome, shadow chrome & OEM colour match",
+  ],
+  image: "/images/services/2148194142.jpg",
+},
+   {
+  icon: <Sparkles className="w-8 h-8" />,
+  title: "Full Powder-Coated Refurbishments",
+  description:
+    "Powder coating gives your alloys a tough shield against corrosion, whether refurbishing damaged wheels or changing the colour to your desired look, using a durable heat and electrostatic bonding process.",
+  features: [
+    "Removal of tyres, weights & valves",
+    "Chemically strip back to bare aluminium",
+    "Corrosion and damage repair",
+    "Shot blast, prime & powder coat in your chosen colour",
+    "Finish in gloss, satin or matt",
+    "Quality check, then tyres, weights & valves refitted",
+  ],
+  image: "images/services/ChatGPT Image Aug 26, 2025, 09_26_08 PM.png",
+}
   ];
 
   const convenience: Service[] = [

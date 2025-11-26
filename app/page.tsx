@@ -8,6 +8,7 @@ import Contact from '@/components/Contact';
 import GalleryPreview from '@/components/GalleryPreview';
 import buildMetadata from '@/lib/seo';
 import SeoMeta from '@/components/SeoMeta';
+import WheelRefurbOverviewSection from '@/components/WheelRefurbOverviewSection';
 
 export const metadata = buildMetadata({
   title: 'Home',
@@ -18,16 +19,10 @@ export const metadata = buildMetadata({
 export default function Home() {
   return (
     <>
-      <SeoMeta
-        structuredData={{
-          '@context': 'https://schema.org',
-          '@type': 'WebSite',
-          name: 'Yorkshire Wheel Specialist',
-          url: 'https://yorkshirewheelspecialist.co.uk',
-        }}
-      />
+      <SeoMeta />
       <Hero />
       <Services />
+      <WheelRefurbOverviewSection />
       <FeaturedProducts />
       {/* Gallery preview */}
       <section className="py-16">
@@ -35,7 +30,7 @@ export default function Home() {
           <GalleryPreview /> {/* uses DEMO_ITEMS with PLACEHOLDER by default */}
         </div>
       </section>
-      <Contact />
-    </>
-  );
-}
+        <Contact />
+      </>
+    );
+  }
