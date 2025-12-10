@@ -23,7 +23,7 @@ const Hero = () => {
             </div>
             
             <h1 className="text-4xl lg:text-6xl font-bold mb-6">
-              Sheffield's Premier
+              Yorkshire's Premier
               <span className="text-green-400"> Alloy Wheel</span>
               <span className="text-yellow-400"> Specialists</span>
             </h1>

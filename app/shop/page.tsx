@@ -43,7 +43,7 @@ const product: Product = {
   name: 'Mercedes G-Wagon W463 AMG Style 20" Alloy Wheels',
   brand: 'Mercedes-Benz',
   category: 'premium',
-  price: 1650,
+  price: 1195,
   originalPrice: null,
   rating: 5.0,
   reviews: 12,
