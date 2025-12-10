@@ -136,7 +136,7 @@ export default function FeaturedProducts() {
 
                   <div className="mb-4 flex items-center justify-between">
                     <div className="inline-flex items-center gap-2 rounded-lg bg-emerald-600/10 px-3 py-1.5 ring-1 ring-emerald-600/20">
-                        <span className="text-emerald-600 font-extrabold">£1650</span>
+                        <span className="text-emerald-600 font-extrabold">£1195</span>
                         <span className="h-1 w-1 rounded-full bg-emerald-600" />
                         <span className="text-xs text-emerald-700">or Best Offer</span>
                     </div>
