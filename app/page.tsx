@@ -23,7 +23,7 @@ export default function Home() {
       <Hero />
       <Services />
       <WheelRefurbOverviewSection />
-      <FeaturedProducts />
+      
       {/* Gallery preview */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-6 sm:px-8">
